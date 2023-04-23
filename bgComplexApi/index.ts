@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import gamesRoute from "./routers/games";
 import usersRoute from "./routers/users";
 import authRoute from "./routers/auth";
+import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config();
 
@@ -17,6 +18,7 @@ const connect = async () => {
 };
 
 // middlewares
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
