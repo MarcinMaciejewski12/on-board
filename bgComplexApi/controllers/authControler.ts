@@ -12,6 +12,7 @@ export const register = async (req: any, res: any, next: any) => {
       username: req.body.username,
       email: req.body.email,
       password: passwordHash,
+      isAdmin: req.body.isAdmin,
     });
 
     await newUser.save();
