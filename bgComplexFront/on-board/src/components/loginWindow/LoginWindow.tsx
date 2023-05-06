@@ -8,8 +8,19 @@ import {
   ButtonContainer,
 } from "./LoginWindowStyle";
 import { SubmitButton } from "../themeStyle/MainTheme";
+import { useQuery } from "react-query";
 
 const LoginWindow = () => {
+  const { isLoading, isError, data, error } = useQuery("myData", () => {
+    fetch("/api/games").then((res) => res.json());
+  });
+
+  if (isLoading) console.log("loading..");
+
+  if (isError) console.log("there is error");
+
+  if (data) console.log(data);
+
   return (
     <>
       <LoginContainer>
@@ -19,11 +30,10 @@ const LoginWindow = () => {
           transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
         >
           <LoginForm>
-            {/* <LoginFormChildren> */}
             <GoBack>
-              <span>Wyjdź</span>
+              <span>Wróć</span>
             </GoBack>
-            {/* </LoginFormChildren> */}
+
             <LoginFormChildren>
               <InputBlock>
                 <label>Login</label>
