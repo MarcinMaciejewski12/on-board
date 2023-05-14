@@ -8,18 +8,8 @@ import {
   ButtonContainer,
 } from "./LoginWindowStyle";
 import { SubmitButton } from "../themeStyle/MainTheme";
-import { useQuery } from "react-query";
-
+import { Link } from "react-router-dom"
 const LoginWindow = () => {
-  const { isLoading, isError, data, error } = useQuery("myData", () => {
-    fetch("/api/games").then((res) => res.json());
-  });
-
-  if (isLoading) console.log("loading..");
-
-  if (isError) console.log("there is error");
-
-  if (data) console.log(data);
 
   return (
     <>
@@ -31,7 +21,10 @@ const LoginWindow = () => {
         >
           <LoginForm>
             <GoBack>
-              <span>Wróć</span>
+              <Link to="/">
+              <span>Wyjdź</span>
+              
+              </Link>
             </GoBack>
 
             <LoginFormChildren>

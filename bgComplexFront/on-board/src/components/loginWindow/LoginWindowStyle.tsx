@@ -40,6 +40,7 @@ export const GoBack = styled(motion.div)`
   padding: 1em;
   font-size: 17px;
   span {
+    text-decoration: none;
     cursor: pointer;
   }
 `;
