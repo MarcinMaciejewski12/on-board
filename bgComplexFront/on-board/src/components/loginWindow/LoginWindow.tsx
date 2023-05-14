@@ -10,6 +10,7 @@ import {
 import { SubmitButton } from "../themeStyle/MainTheme";
 import { Link } from "react-router-dom"
 const LoginWindow = () => {
+
   return (
     <>
       <LoginContainer>
@@ -19,14 +20,13 @@ const LoginWindow = () => {
           transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
         >
           <LoginForm>
-            {/* <LoginFormChildren> */}
             <GoBack>
               <Link to="/">
               <span>Wyjdź</span>
               
               </Link>
             </GoBack>
-            {/* </LoginFormChildren> */}
+
             <LoginFormChildren>
               <InputBlock>
                 <label>Login</label>

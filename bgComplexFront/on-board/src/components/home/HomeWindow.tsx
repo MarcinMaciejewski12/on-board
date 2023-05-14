@@ -7,8 +7,13 @@ import {
 import { LogoBlob, IntroBlob } from "../themeStyle/blobs/blob";
 import { SingUpButton } from "../themeStyle/buttons/ButtonStyles";
 import { motion } from "framer-motion";
+import useFetch from "../../hooks/fetchData";
 
 const HomeWindow = () => {
+
+  const { data, loading, error, } = useFetch("/games")
+console.log(data);
+
   return (
     <HomePage>
       <LogoContainer>
