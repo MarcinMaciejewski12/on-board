@@ -36,6 +36,7 @@ const HomeWindow = () => {
         </IntroBlobContainer>
       </IntroContainer>
     </HomePage>
+    
   );
 };
 
