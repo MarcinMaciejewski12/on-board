@@ -47,5 +47,5 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
-  }
+  },"proxy": "http://localhost:8800/api"
 }
