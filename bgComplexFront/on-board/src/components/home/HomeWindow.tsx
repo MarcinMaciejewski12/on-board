@@ -41,7 +41,6 @@ console.log(data);
         </IntroBlobContainer>
       </IntroContainer>
     </HomePage>
-    
   );
 };
 
