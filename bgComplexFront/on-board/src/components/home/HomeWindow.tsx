@@ -11,20 +11,12 @@ import { motion } from "framer-motion";
 const HomeWindow = () => {
   return (
     <HomePage>
-      <LogoContainer
-       
-      >
+      <LogoContainer>
         <LogoBlob />
         <motion.div>
-          <motion.span
-            
-          >
+          <motion.span>
             Board Game
-            <motion.h1
-           
-            >
-              Complex
-            </motion.h1>
+            <motion.h1>Complex</motion.h1>
           </motion.span>
         </motion.div>
       </LogoContainer>
@@ -34,10 +26,12 @@ const HomeWindow = () => {
           <div>
             <span>
               kochasz planszówki tak samo jak my? Chciałbyś się zmierzyć z
-              swoimi znajmomymi? <span>Zarejestruj sie</span> już teraz i śledź zmagania
-              swoje i przyjaciół w aplikacji!
+              swoimi znajmomymi? <span>Zarejestruj sie</span> już teraz i śledź
+              zmagania swoje i przyjaciół w aplikacji!
             </span>
-            <SingUpButton whileHover={{scale: 1.1}}>Zarejestruj sie!</SingUpButton>
+            <SingUpButton whileHover={{ scale: 1.1 }}>
+              Zarejestruj sie!
+            </SingUpButton>
           </div>
         </IntroBlobContainer>
       </IntroContainer>
