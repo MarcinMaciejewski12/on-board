@@ -9,8 +9,9 @@ background: ${(props) => props.theme.colors.second};
 
 export const LogoContainer = styled(motion.div)`
 position: relative;
+cursor: default;
 display: inline-block;
-padding: 1rem;
+padding-left: 5rem;
 & div {
     position: absolute;
     top: 50%;
@@ -42,8 +43,8 @@ export const IntroContainer = styled(motion.div)`
 width: 100%;
 
 position:relative;
-top: -300px;
-padding-right: 4rem;
+top: -250px;
+padding-right: 13rem;
 display: flex;
 justify-content: end;
 `

@@ -5,28 +5,23 @@ import {
   IntroContainer,
 } from "./HomeWindowStyle";
 import { LogoBlob, IntroBlob } from "../themeStyle/blobs/blob";
+import { SingUpButton } from "../themeStyle/buttons/ButtonStyles";
 import { motion } from "framer-motion";
 
 const HomeWindow = () => {
   return (
     <HomePage>
       <LogoContainer
-        initial={{y:-200, opacity: 0, scale: 0 }}
-        animate={{y:0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2 }}
+       
       >
         <LogoBlob />
         <motion.div>
           <motion.span
-            initial={{ x: 10 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1.2 }}
+            
           >
             Board Game
             <motion.h1
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 2 }}
+           
             >
               Complex
             </motion.h1>
@@ -42,6 +37,7 @@ const HomeWindow = () => {
               swoimi znajmomymi? <span>Zarejestruj sie</span> już teraz i śledź zmagania
               swoje i przyjaciół w aplikacji!
             </span>
+            <SingUpButton whileHover={{scale: 1.1}}>Zarejestruj sie!</SingUpButton>
           </div>
         </IntroBlobContainer>
       </IntroContainer>

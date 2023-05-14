@@ -8,7 +8,7 @@ import {
   ButtonContainer,
 } from "./LoginWindowStyle";
 import { SubmitButton } from "../themeStyle/MainTheme";
-
+import { Link } from "react-router-dom"
 const LoginWindow = () => {
   return (
     <>
@@ -21,7 +21,10 @@ const LoginWindow = () => {
           <LoginForm>
             {/* <LoginFormChildren> */}
             <GoBack>
+              <Link to="/">
               <span>Wyjdź</span>
+              
+              </Link>
             </GoBack>
             {/* </LoginFormChildren> */}
             <LoginFormChildren>
