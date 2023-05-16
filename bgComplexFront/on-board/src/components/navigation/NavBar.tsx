@@ -1,8 +1,10 @@
 import LoginButton from "../themeStyle/buttons/LoginButton";
 import {NavigationContainer} from "./NavBarStyle";
 import { LineOne, LineTwo, LineThree } from "./NavBarStyle";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const NavBar = () => {
+const location = useLocation();
+
     return <NavigationContainer>
         <div style={{cursor: 'pointer', width: '20px'}}>
         <LineOne/>
@@ -10,7 +12,10 @@ const NavBar = () => {
         <LineThree/>
         </div>
         <Link to="login">
-        <LoginButton />
+       {
+       location.pathname !== '/login' || '/dashboard' && 
+        <LoginButton>Zaloguj się</LoginButton>
+       }
         </Link>
     </NavigationContainer>
 

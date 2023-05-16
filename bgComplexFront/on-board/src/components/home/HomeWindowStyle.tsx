@@ -44,7 +44,7 @@ width: 100%;
 
 position:relative;
 top: -250px;
-padding-right: 13rem;
+padding-right: 9rem;
 display: flex;
 justify-content: end;
 `
@@ -57,13 +57,15 @@ export const IntroBlobContainer = styled(motion.div)`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -90%);
     padding: 10px;
-    width: 30em;
+    width: 35em;
     height: 150px;
     text-align: center;
    & span {
-    font-size: 20px;
+      line-height: 3rem;
+   font-weight: 100;
+    font-size: 30px;
     cursor: default;
     & span{ 
       font-weight: 700;
