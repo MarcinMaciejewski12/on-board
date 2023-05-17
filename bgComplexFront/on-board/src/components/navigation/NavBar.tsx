@@ -13,7 +13,7 @@ const location = useLocation();
         </div>
         <Link to="login">
        {
-       location.pathname !== '/login' || '/dashboard' && 
+       location.pathname !== '/login' && 
         <LoginButton>Zaloguj się</LoginButton>
        }
         </Link>

@@ -49,7 +49,7 @@ const LoginWindow = () => {
     }catch (error) {
       console.log(error)
     }
-    console.log(loginValue, passwordValue)
+
   } 
 
   return (

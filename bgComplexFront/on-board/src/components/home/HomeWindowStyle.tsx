@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const HomePage = styled.div`
 width: 100%;
-height: 100vh;
+height: 100%;
 background: ${(props) => props.theme.colors.second};
 `
 
