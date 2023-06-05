@@ -4,8 +4,8 @@ import {
   IntroBlobContainer,
   IntroContainer,
 } from "./HomeWindowStyle";
-import { LogoBlob, IntroBlob } from "../themeStyle/blobs/blob";
-import { SingUpButton } from "../themeStyle/buttons/ButtonStyles";
+import { LogoBlob, IntroBlob } from "../theme/blobs/blob";
+import { SingUpButton } from "../theme/buttons/ButtonStyles";
 import { motion } from "framer-motion";
 const HomeWindow = () => {
 

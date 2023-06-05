@@ -1,4 +1,4 @@
-import LoginButton from "../themeStyle/buttons/LoginButton";
+import LoginButton from "../theme/buttons/LoginButton";
 import {NavigationContainer} from "./NavBarStyle";
 import { LineOne, LineTwo, LineThree } from "./NavBarStyle";
 import { Link, useLocation } from "react-router-dom";
@@ -13,7 +13,7 @@ const location = useLocation();
         </div>
         <Link to="login">
        {
-       location.pathname !== '/login' && 
+       location.pathname !== '/login' && location.pathname !== '/dashboard' &&
         <LoginButton>Zaloguj się</LoginButton>
        }
         </Link>

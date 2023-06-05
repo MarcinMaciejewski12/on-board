@@ -1,32 +1,27 @@
-import { DashboardViewContainer,DashboardView, GameCollectionContainer ,ListContainer, GamesValuesContainer} from './DashboardStyle';
-// import axios from "axios";
-// import { useQuery } from "react-query";
+import {
+  DashboardViewContainer,
+  DashboardView,
+} from "./DashboardStyle";
+import List from "../theme/list/List";
+
 
 
 
 
 const Dashboard = () => {
-//  const { isLoading, error, data } = useQuery({
-//    queryKey: ['data'],
-//    queryFn: () => axios.get('/games').then((res)=> res.data),
-// })
-const games = [
-   {
-      name: 'name',
-      difficulty: 4,
-      players: 4,
-   }
-]
-   return (<DashboardViewContainer>
+
+
+ 
+  return (
+    <DashboardViewContainer>
       <DashboardView>
-         <h1>Twoja kolekcja gier:</h1>
-         <GameCollectionContainer>
-         <ListContainer>
-            <GamesValuesContainer />
-         </ListContainer>
-         </GameCollectionContainer>
+        <h1>Twoja kolekcja gier:</h1>
+        <List>
+          <h1>twoje gry</h1>
+        </List>
       </DashboardView>
-   </DashboardViewContainer>)
-}
+    </DashboardViewContainer>
+  );
+};
 
 export default Dashboard;
