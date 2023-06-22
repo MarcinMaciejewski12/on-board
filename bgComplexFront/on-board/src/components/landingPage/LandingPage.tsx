@@ -13,6 +13,7 @@ import {
   LeftLeaves,
   RightLeaves
 } from "./LandingPageStyle";
+import RecommendationCarousel  from './recomendationCarousel/RecomendationCarousel';
 import { Dice } from '../theme/blobs/blob';
 
 const LadningPage = () => {
@@ -97,6 +98,7 @@ const LadningPage = () => {
             <RightLeaves>TWOJA GRUPA ZNAJOMYCH</RightLeaves>
           </LeavesContainer>
         </EncouragingLeaves>
+        <RecommendationCarousel />
     </LandingPageContainer>
   );
 };
