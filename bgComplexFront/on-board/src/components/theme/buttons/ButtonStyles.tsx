@@ -7,8 +7,9 @@ height:30px;
 cursor: pointer;
 border: none;
 font-size: 15px;
+font-weight: 500;
 border-radius: 15px;
-background: ${props => props.theme.colors.first};
+background: white;
 `
 
 
@@ -20,7 +21,7 @@ cursor: pointer;
 border: none;
 font-size: 15px;
 border-radius: 15px;
-margin-top: 20px;
+/* margin-top: 20px; */
 color: ${props => props.theme.colors.first};
 background: ${props => props.theme.colors.third};
 `

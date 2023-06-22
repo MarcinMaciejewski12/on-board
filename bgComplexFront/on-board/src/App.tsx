@@ -1,31 +1,26 @@
-import HomeWindow from "./components/home/HomeWindow";
-import NavBar from "./components/navigation/NavBar";
-import LoginWindow from "./components/loginWindow/LoginWindow";
-
 import { ThemeProvider } from "styled-components";
 import { Routes, Route } from "react-router-dom"
-import { ThemeColors } from "./components/themeStyle/MainTheme";
+import { Theme } from "./components/theme/MainTheme";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Dashboard from "./components/dashboard/Dashboard";
+import GamesList from "./components/gamesList/GamesList";
+import LandingPage from "./components/landingPage/LandingPage";
+import NavigationBar from "./components/navigation/NavigationBar";
 function App() {
 
 const queryClient = new QueryClient()
 
   return (
-    <>
+    
     <QueryClientProvider client={queryClient} >
-    <ThemeProvider theme={ThemeColors}>
-      <NavBar />
+    <ThemeProvider theme={Theme}>
+        <NavigationBar />
       <Routes>
-        <Route path="/" element={ <HomeWindow />} />
-        <Route path="/dashboard" element={ <Dashboard /> } />
-        <Route path="/login" element={ <LoginWindow /> } />
+        <Route path="/" element={ <LandingPage />} />
+        <Route path="/gamesList" element={<GamesList />} />
       </Routes>
-  </ThemeProvider>  
+  </ThemeProvider>
     </QueryClientProvider>
-    </>
-  
- 
+    
   )
 }
 

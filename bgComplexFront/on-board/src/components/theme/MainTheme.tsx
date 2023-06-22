@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const ThemeColors = {
+export const Theme = {
   colors: {
-    first: "white",
-    second: "#F1C40F",
-    third: "#2ECC71",
-    fourth: "#c3c7c7",
+    primary: "#FFC600",
+    secondary: "#3C3C3C",
+    teriary: "#1E96FC",
   },
+  margin: {
+    marginTop: '8vh',
+  }
 };
+
 
 export const SubmitButton = styled.button`
   width: 15vw;
