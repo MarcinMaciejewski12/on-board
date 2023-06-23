@@ -11,11 +11,6 @@ export const Container = styled.div`
     justify-content: center;
     `;
 
-export const CarouselContainer = styled(motion.div)`
-    width: 100%;
-    height: 100%;
-    background: orange;
-`
 
 export const Header = styled.div`
     width: 20vw;
