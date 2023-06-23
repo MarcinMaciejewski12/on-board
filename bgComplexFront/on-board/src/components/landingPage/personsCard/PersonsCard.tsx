@@ -1,29 +1,37 @@
-import { Container } from "./PersonsCardStyle";
+import { Container, Header } from "./PersonsCardStyle";
 
-const Persons = [
-    {
-        name: 'Wojtek',
-        description: '“Pomocy jestem przetrzymywany w serwerowni”',
-        star: 5
-    },
-    {
-        name: 'Michał',
-        description: '“Pomocy jestem przetrzymywany w serwerowni”',
-        star: 5
-    },
-    
-    {
-        name: 'Andrzej',
-        description: '“Pomocy jestem przetrzymywany w serwerowni”',
-        star: 5,
-    }
-]
 
 const PersonsCard = () => {
+    const persons = [
+        {
+            id:1,
+            name: 'Wojtek',
+            description: '“Pomocy jestem przetrzymywany w serwerowni”',
+            star: 5
+        },
+        {
+            id:2,
+            name: 'Michał',
+            description: '“Pomocy jestem przetrzymywany w serwerowni”',
+            star: 5
+        },
+        
+        {
+            id: 3,
+            name: 'Andrzej',
+            description: '“Pomocy jestem przetrzymywany w serwerowni”',
+            star: 5,
+        }
+    ]
 
-    return <Container>
-        {/* TODO: carousel functionality */}
+ 
+       return <Container>
+        <Header>
+        <h1>Marcin</h1>
+        </Header>
     </Container>
+    
+   
 }
 
 export default PersonsCard;
