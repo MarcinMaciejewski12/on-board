@@ -26,9 +26,11 @@ const PersonsCard = () => {
 
  
        return <Container>
+      
         <Header>
         <h1>Marcin</h1>
         </Header>
+   
     </Container>
     
    

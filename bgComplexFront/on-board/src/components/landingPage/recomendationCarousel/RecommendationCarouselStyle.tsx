@@ -34,5 +34,8 @@ export const CarouselContainer = styled(motion.div)`
   width: 75vw;
   height: 55vh;
   background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 `;
