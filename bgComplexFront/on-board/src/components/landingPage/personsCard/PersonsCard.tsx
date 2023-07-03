@@ -1,7 +1,7 @@
 import { Container, Header } from "./PersonsCardStyle";
 
 
-const PersonsCard = () => {
+const PersonsCard = ()  => {
     const persons = [
         {
             id:1,
@@ -25,13 +25,22 @@ const PersonsCard = () => {
     ]
 
  
-       return <Container>
       
-        <Header>
-        <h1>Marcin</h1>
-        </Header>
+       return <>
+       {
+           persons.map((person, index)=> {
+            
+               return (     
+                <Container key={index}>
+                    <Header>{person.name}</Header>
+                    <p>{person.description}</p>
+                </Container>
+                
+            )
+        })
+       }
+       </>
    
-    </Container>
     
    
 }

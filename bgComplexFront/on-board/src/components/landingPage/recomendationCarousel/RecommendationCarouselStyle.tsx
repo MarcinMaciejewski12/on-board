@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const RecommendationSection = styled.section`
   width: 100%;
   height: 90vh;
-  background: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,12 +29,25 @@ export const Header = styled.div`
   }
 `;
 
+export const BackArrowContainer = styled(motion.div)`
+height: 100%;
+width: 5vw;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+export const ForwardArrowContainer = styled(motion.div)`
+height: 100%;
+width: 5vw;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
 export const CarouselContainer = styled(motion.div)`
   width: 75vw;
   height: 55vh;
-  background: blue;
   display: flex;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: space-between;
 `;
