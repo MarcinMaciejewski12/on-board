@@ -16,6 +16,8 @@ export const MainDescriptionBackground = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const LogoAndDescriptionContainer = styled.div`
@@ -77,6 +79,8 @@ export const SecondDescriptionBackground = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const EncouragingLeaves = styled.div`
@@ -91,6 +95,7 @@ export const LeavesContainer = styled.div`
     display: flex;
     align-items: center;
     margin-top: 7rem;
+    
 `;
 
 export const LeftLeaves = styled(motion.div)`
@@ -102,6 +107,8 @@ export const LeftLeaves = styled(motion.div)`
     font-size: 50px;
     background-color: #FCF300;
     border-radius: 0px 30px 30px 0px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const RightLeaves = styled(motion.div)`
@@ -110,7 +117,9 @@ export const RightLeaves = styled(motion.div)`
     display: flex;
     justify-content: center;
     align-items: center;
-   font-size: 50px;
+    font-size: 50px;
     background-color: #FCF300;
     border-radius: 30px 0px 0px 30px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;

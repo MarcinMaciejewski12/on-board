@@ -1,44 +1,51 @@
-import { Container, Header } from "./PersonsCardStyle";
+import { ArrowForward, ArrowBack } from "../../theme/blobs/blob";
+import { CarouselContainer, ForwardArrowContainer, BackArrowContainer } from "../recomendationCarousel/RecommendationCarouselStyle";
+import { Card, Container, Header } from "./PersonsCardStyle";
+import { useState } from "react";
+import { persons } from "../../theme/data/data";
 
 
 const PersonsCard = ()  => {
-    const persons = [
-        {
-            id:1,
-            name: 'Wojtek',
-            description: '“Pomocy jestem przetrzymywany w serwerowni”',
-            star: 5
-        },
-        {
-            id:2,
-            name: 'Michał',
-            description: '“Pomocy jestem przetrzymywany w serwerowni”',
-            star: 5
-        },
-        
-        {
-            id: 3,
-            name: 'Andrzej',
-            description: '“Pomocy jestem przetrzymywany w serwerowni”',
-            star: 5,
-        }
-    ]
+    const [personIndex, setPersonIndex] = useState<number>(0);
 
- 
+    const prevSlide = () => {
+        personIndex === 0
+          ? setPersonIndex(persons.length - 1)
+          : setPersonIndex(personIndex - 1);
+      };
+    
+      const nextSlide = () => {
+        persons.length > personIndex + 1
+          ? setPersonIndex(personIndex + 1)
+          : setPersonIndex(0);
+      };
       
        return <>
-       {
-           persons.map((person, index)=> {
-            
-               return (     
-                <Container key={index}>
+        
+        <CarouselContainer>
+          <ForwardArrowContainer>
+            <div onClick={prevSlide} style={{ cursor: "pointer" }}>
+              <ArrowForward />
+            </div>
+          </ForwardArrowContainer>
+          {persons.map((person, index) => {
+            return (
+              <Card key={index}>
+                {personIndex === index && (
+                  <Container key={index}>
                     <Header>{person.name}</Header>
                     <p>{person.description}</p>
-                </Container>
-                
-            )
-        })
-       }
+                  </Container>
+                )}
+              </Card>
+            );
+          })}
+          <BackArrowContainer>
+            <div onClick={nextSlide} style={{ cursor: "pointer" }}>
+              <ArrowBack />
+            </div>
+          </BackArrowContainer>
+        </CarouselContainer>
        </>
    
     

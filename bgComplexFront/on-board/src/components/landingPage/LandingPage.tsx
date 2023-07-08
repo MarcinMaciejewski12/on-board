@@ -15,6 +15,7 @@ import {
 } from "./LandingPageStyle";
 import RecommendationCarousel  from './recomendationCarousel/RecomendationCarousel';
 import { Dice } from '../theme/blobs/blob';
+import Footer from "./footer/Footer";
 
 const LadningPage = () => {
   return (
@@ -99,6 +100,7 @@ const LadningPage = () => {
           </LeavesContainer>
         </EncouragingLeaves>
         <RecommendationCarousel />
+        <Footer />
     </LandingPageContainer>
   );
 };

@@ -7,6 +7,7 @@ export const RecommendationSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5rem;
 `;
 
 export const RecommendationContainer = styled.div`
@@ -14,6 +15,7 @@ export const RecommendationContainer = styled.div`
   height: 85vh;
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: 20px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 `;
 
 export const Header = styled.div`
