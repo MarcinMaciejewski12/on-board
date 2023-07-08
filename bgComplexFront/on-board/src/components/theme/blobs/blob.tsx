@@ -30,3 +30,35 @@ export const Dice = () => {
   </svg>
   )
 }
+
+export const ArrowBack = () => {
+  return (
+    <svg width="126" height="60" viewBox="0 0 126 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_102_170)">
+<path d="M55 31H67.17L61.58 36.59L63 38L71 30L63 22L61.59 23.41L67.17 29H55V31Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_102_170">
+<rect x="83" y="50" width="40" height="40" rx="20" transform="rotate(-180 83 50)" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+  )
+}
+
+export const ArrowForward = () => {
+  return (
+    <svg width="126" height="60" viewBox="0 0 126 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_102_165)">
+<path d="M71 29H58.83L64.42 23.41L63 22L55 30L63 38L64.41 36.59L58.83 31H71V29Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_102_165">
+<rect x="43" y="10" width="40" height="40" rx="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+  )
+}

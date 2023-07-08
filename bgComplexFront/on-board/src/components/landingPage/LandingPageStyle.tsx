@@ -16,10 +16,11 @@ export const MainDescriptionBackground = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const LogoAndDescriptionContainer = styled.div`
-    /* background: red; */
     width:80%;
     height: 55vh;
 `;
@@ -45,7 +46,6 @@ export const LogoContainer = styled.div`
 export const DescriptionContainer = styled.div`
     height: 60%;
     width: 100%;
-    /* background: orange; */
     display: flex;
     justify-content: center;
     align-items: start;
@@ -65,7 +65,6 @@ export const MainDescription = styled.span`
 export const ButtonContainer = styled.div`
     width: 100%;
     height: 20%;
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +79,8 @@ export const SecondDescriptionBackground = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const EncouragingLeaves = styled.div`
@@ -91,22 +92,34 @@ export const EncouragingLeaves = styled.div`
 export const LeavesContainer = styled.div`
     width: 100%;
     height: 20vh;
-    background: red;
     display: flex;
     align-items: center;
     margin-top: 7rem;
+    
 `;
 
 export const LeftLeaves = styled(motion.div)`
     width: 70%;
     height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
     background-color: #FCF300;
     border-radius: 0px 30px 30px 0px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
 
 export const RightLeaves = styled(motion.div)`
     width: 70%;
     height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
     background-color: #FCF300;
     border-radius: 30px 0px 0px 30px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
 `;
