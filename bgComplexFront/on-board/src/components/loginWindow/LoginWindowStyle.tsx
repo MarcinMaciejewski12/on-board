@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const LoginContainer = styled(motion.div)`
   width: 100%;
   height: 100vh;
-  background: ${(props) => props.theme.colors.second};
+  background: ${(props) => props.theme.colors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ export const LoginModal = styled(motion.div)`
   width: 50vw;
   height: 60vh;
   flex-direction: column;
-  background: ${(props) => props.theme.colors.first};
+  background: white;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
