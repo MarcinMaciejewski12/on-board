@@ -10,6 +10,7 @@ font-size: 15px;
 font-weight: 500;
 border-radius: 15px;
 background: white;
+z-index: 2;
 `
 
 
