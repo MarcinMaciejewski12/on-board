@@ -15,7 +15,9 @@ const NavigationBar = () => {
             </div>
         </NavigationGrid>
         <LoginButtonSection>
+            <Link to={'/login'}>
         <LoginButton>Zaloguj się</LoginButton>
+            </Link>
         </LoginButtonSection>
     </NavigationContainer>
 }

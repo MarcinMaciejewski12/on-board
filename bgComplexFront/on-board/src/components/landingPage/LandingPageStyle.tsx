@@ -83,13 +83,14 @@ export const SecondDescriptionBackground = styled.div`
 
 `;
 
-export const EncouragingLeaves = styled.div`
+export const EncouragingLeaves = styled(motion.div)`
     width: 100%;
     height: 150vh;
     margin-top: 5rem;
+    overflow: hidden;
 `;
 
-export const LeavesContainer = styled.div`
+export const LeavesContainer = styled(motion.div)`
     width: 100%;
     height: 20vh;
     display: flex;
@@ -107,7 +108,7 @@ export const LeftLeaves = styled(motion.div)`
     font-size: 50px;
     background-color: #FCF300;
     border-radius: 0px 30px 30px 0px;
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 
 `;
 
