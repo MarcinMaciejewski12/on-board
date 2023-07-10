@@ -1,6 +1,6 @@
 import { ArrowForward, ArrowBack } from "../../theme/blobs/blob";
 import { CarouselContainer, ForwardArrowContainer, BackArrowContainer } from "../recomendationCarousel/RecommendationCarouselStyle";
-import { Card, Container, Header } from "./PersonsCardStyle";
+import { Card, Container, Description, Header } from "./PersonsCardStyle";
 import { useState } from "react";
 import { persons } from "../../theme/data/data";
 
@@ -34,7 +34,9 @@ const PersonsCard = ()  => {
                 {personIndex === index && (
                   <Container key={index}>
                     <Header>{person.name}</Header>
+                    <Description>
                     <p>{person.description}</p>
+                    </Description>
                   </Container>
                 )}
               </Card>
