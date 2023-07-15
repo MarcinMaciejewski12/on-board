@@ -12,10 +12,13 @@ import {
   LeavesContainer,
   LeftLeaves,
   RightLeaves,
+  DiceSection,
+  ButtonDisplay,
 } from "./LandingPageStyle";
 import RecommendationCarousel from "./recomendationCarousel/RecomendationCarousel";
 import { Dice } from "../theme/blobs/blob";
 import Footer from "./footer/Footer";
+import { motion } from "framer-motion";
 
 const LadningPage = () => {
   return (
@@ -24,7 +27,7 @@ const LadningPage = () => {
         <LogoAndDescriptionContainer>
           <LogoContainer>
             <h1>
-              BOARD GAME <span>COMPARE</span>
+              BOARD GAME <motion.span>COMPARE</motion.span>
             </h1>
           </LogoContainer>
           <DescriptionContainer>
@@ -38,31 +41,16 @@ const LadningPage = () => {
             </MainDescription>
           </DescriptionContainer>
           <ButtonContainer>
-            <div
-              style={{
-                width: "80%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-around",
-              }}
-            >
+            <ButtonDisplay>
               <SingUpButton>Zarejestruj się!</SingUpButton>
               <SingUpButton style={{ background: "#FCF300" }}>
                 Pobierz aplikacje
               </SingUpButton>
-            </div>
+            </ButtonDisplay>
           </ButtonContainer>
         </LogoAndDescriptionContainer>
       </MainDescriptionBackground>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "end",
-          marginTop: "5rem",
-        }}
-      >
+      <DiceSection>
         <SecondDescriptionBackground>
           <div style={{ marginLeft: "4rem" }}>
             <Dice />
@@ -87,12 +75,12 @@ const LadningPage = () => {
             </DescriptionContainer>
           </div>
         </SecondDescriptionBackground>
-      </div>
+      </DiceSection>
       <EncouragingLeaves>
         <LeavesContainer>
           <LeftLeaves
             initial={{ x: "-100%", opacity: 0 }}
-            transition={{ duration: 0.3, delay: 0.5, }}
+            transition={{ duration: 0.3, delay: 0.5 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
@@ -101,24 +89,33 @@ const LadningPage = () => {
         </LeavesContainer>
         <LeavesContainer style={{ justifyContent: "end" }}>
           <RightLeaves
-            initial={{ x:100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: 0.5, type: "spring"  }}
-            whileInView={{ opacity: 1, x: 0 }}>LISTA ULUBIONYCH GIER</RightLeaves>
+            transition={{ duration: 0.3, delay: 0.5, type: "spring" }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            LISTA ULUBIONYCH GIER
+          </RightLeaves>
         </LeavesContainer>
         <LeavesContainer>
           <LeftLeaves
             initial={{ x: "-100%", opacity: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: 0.5, type: "spring" }}
-            whileInView={{ opacity: 1, x: 0 }}>KALENDARIUM WYDARZEŃ</LeftLeaves>
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            KALENDARIUM WYDARZEŃ
+          </LeftLeaves>
         </LeavesContainer>
         <LeavesContainer style={{ justifyContent: "end" }}>
-          <RightLeaves 
+          <RightLeaves
             initial={{ x: "100%", opacity: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: 0.5, type: "spring" }}
-            whileInView={{ opacity: 1, x: 0 }}>TWOJA GRUPA ZNAJOMYCH</RightLeaves>
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            TWOJA GRUPA ZNAJOMYCH
+          </RightLeaves>
         </LeavesContainer>
       </EncouragingLeaves>
       <RecommendationCarousel />
