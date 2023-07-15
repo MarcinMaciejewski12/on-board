@@ -8,17 +8,11 @@ import {
   NavigationContainer,
   NavigationGrid,
 } from "./NavigationBarStyle";
+import { useState } from "react";
 
-const NavigationBar = () => {
+const NavigationBar = ({ toggle }: any) => {
   return (
     <NavigationContainer>
-      <NavigationGrid>
-        <div style={{ cursor: "pointer" }}>
-          <LineOne></LineOne>
-          <LineTwo></LineTwo>
-          <LineThree></LineThree>
-        </div>
-      </NavigationGrid>
       <LoginButtonSection>
         <Link to={"/login"}>
           <LoginButton>Zaloguj się</LoginButton>

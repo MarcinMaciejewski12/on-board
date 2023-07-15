@@ -4,7 +4,14 @@ import {
   ForwardArrowContainer,
   BackArrowContainer,
 } from "../recomendationCarousel/RecommendationCarouselStyle";
-import { Card, Container, Description, Header } from "./PersonsCardStyle";
+import {
+  Card,
+  MainContainer,
+  Description,
+  Header,
+  StarContainer,
+} from "./PersonsCardStyle";
+import { Star } from "../../theme/blobs/blob";
 import { useState } from "react";
 import { persons } from "../../theme/data/data";
 
@@ -22,7 +29,6 @@ const PersonsCard = () => {
       ? setPersonIndex(personIndex + 1)
       : setPersonIndex(0);
   };
-
   return (
     <>
       <CarouselContainer>
@@ -32,15 +38,20 @@ const PersonsCard = () => {
           </div>
         </ForwardArrowContainer>
         {persons.map((person, index) => {
+          let starContainer = [];
+          for (let star = 0; person.star > star; star++) {
+            starContainer.push(Star());
+          }
           return (
             <Card key={index}>
               {personIndex === index && (
-                <Container key={index}>
+                <MainContainer key={index}>
                   <Header>{person.name}</Header>
                   <Description>
                     <p>{person.description}</p>
                   </Description>
-                </Container>
+                  <StarContainer>{starContainer}</StarContainer>
+                </MainContainer>
               )}
             </Card>
           );

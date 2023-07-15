@@ -6,17 +6,30 @@ export const LoginContainer = styled(motion.div)`
   height: 100vh;
   background: ${(props) => props.theme.colors.primary};
   display: flex;
-  justify-content: center;
+`;
+
+export const LoginIntroductionContainer = styled(motion.div)`
+  width: 50vw;
+  height: 100%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+
+  & h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+  }
 `;
 
 export const LoginModal = styled(motion.div)`
-  width: 50vw;
-  height: 60vh;
+  width: 60vw;
+  height: 100vh;
   flex-direction: column;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: ${(props) => props.theme.colors.secondary};
+  border-radius: 0px 350px 0px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: auto;
 `;
 
 export const LoginForm = styled.div`
@@ -24,11 +37,6 @@ export const LoginForm = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const LoginFormChildren = styled.div`
-  width: 100%;
-  flex: 1;
 `;
 
 export const GoBack = styled(motion.div)`
@@ -45,27 +53,39 @@ export const GoBack = styled(motion.div)`
   }
 `;
 
-export const InputBlock = styled.div`
+export const InputBlock = styled(motion.div)`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   flex-direction: column;
+  color: white;
 
   input {
     width: 30vw;
     font-size: 20px;
     height: 8vh;
+    border: 1px solid white;
     border-radius: 5px;
     border: 0.1 solid grey;
+    background: ${(props) => props.theme.colors.secondary};
     margin: 20px;
+    border-color: white;
+    color: white;
+    padding: 0.5rem;
+    ::placeholder {
+      color: white;
+      opacity: 0.4;
+    }
   }
 `;
 
 export const ButtonContainer = styled(motion.div)`
-  height: 80px;
+  height: 50%;
+  padding: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 `;

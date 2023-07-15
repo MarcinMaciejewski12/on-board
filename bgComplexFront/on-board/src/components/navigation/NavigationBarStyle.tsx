@@ -1,10 +1,12 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const NavigationContainer = styled.nav`
   height: 8vh;
   position: fixed;
-  display: grid;
-  grid-template-columns: 80vw 20vw;
+  display: flex;
+  justify-content: end;
+  width: 98vw;
   background: transparent;
   z-index: 10;
 `;
@@ -23,7 +25,7 @@ export const LoginButtonSection = styled.div`
   justify-content: center;
 `;
 
-export const LineOne = styled.div`
+export const LineOne = styled(motion.div)`
   width: 20px;
   margin-bottom: 4px;
   height: 3px;
@@ -31,7 +33,7 @@ export const LineOne = styled.div`
   /* TODO change color */
   background: ${(props) => props.theme.colors.primary};
 `;
-export const LineTwo = styled.div`
+export const LineTwo = styled(motion.div)`
   width: 10px;
   height: 3px;
   margin-bottom: 4px;
@@ -39,7 +41,7 @@ export const LineTwo = styled.div`
   /* TODO change color */
   background: ${(props) => props.theme.colors.primary};
 `;
-export const LineThree = styled.div`
+export const LineThree = styled(motion.div)`
   width: 20px;
   height: 3px;
   border-radius: 10px;
