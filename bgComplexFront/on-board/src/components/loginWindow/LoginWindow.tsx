@@ -3,13 +3,12 @@ import {
   LoginContainer,
   LoginModal,
   LoginForm,
-  GoBack,
   InputBlock,
   ButtonContainer,
   LoginIntroductionContainer,
 } from "./LoginWindowStyle";
 import { SubmitButton } from "../theme/MainTheme";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMutation } from "react-query";
 
@@ -57,15 +56,22 @@ const LoginWindow = () => {
     <>
       <LoginContainer>
         <LoginModal
+          // TODO: refactor
           initial={{ y: 1000, opacity: 1 }}
           animate={{ y: 0 }}
-          transition={{ duration: 1.6 }}
+          transition={{ when: "beforeChildren", duration: 0.8 }}
         >
           <LoginForm>
             <InputBlock
-              initial={{ x: -100, opacity: 0, scale: 0.4 }}
-              animate={{ x: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 1.6 }}
+              // TODO: refactor
+              initial={{ x: -1000, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                duration: 1.5,
+                delay: 0.5,
+                stiffness: 80,
+              }}
             >
               <label>Login</label>
               <input
@@ -83,9 +89,20 @@ const LoginWindow = () => {
               />
             </InputBlock>
             <ButtonContainer
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
+              // TODO: refactor
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.8,
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+                scale: {
+                  type: "spring",
+                  damping: 5,
+                  stiffness: 100,
+                  restDelta: 0.001,
+                },
+              }}
             >
               <SubmitButton onClick={loginButtonHandler}>
                 Zaloguj się

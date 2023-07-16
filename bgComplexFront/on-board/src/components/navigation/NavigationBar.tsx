@@ -1,16 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginButton from "../theme/buttons/LoginButton";
-import {
-  LineOne,
-  LineThree,
-  LineTwo,
-  LoginButtonSection,
-  NavigationContainer,
-  NavigationGrid,
-} from "./NavigationBarStyle";
-import { useState } from "react";
+import { LoginButtonSection, NavigationContainer } from "./NavigationBarStyle";
 
-const NavigationBar = ({ toggle }: any) => {
+const NavigationBar = () => {
   return (
     <NavigationContainer>
       <LoginButtonSection>
