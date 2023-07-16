@@ -1,24 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginButton from "../theme/buttons/LoginButton";
-import { LineOne, LineThree, LineTwo, LoginButtonSection, NavigationContainer, NavigationGrid } from "./NavigationBarStyle";
+import { LoginButtonSection, NavigationContainer } from "./NavigationBarStyle";
 
 const NavigationBar = () => {
-    const navigate = useNavigate();
-
-
-    return <NavigationContainer>
-        <NavigationGrid>
-            <div style={{cursor: 'pointer'}}>
-                <LineOne></LineOne>
-                <LineTwo></LineTwo>
-                <LineThree></LineThree>
-            </div>
-        </NavigationGrid>
-        <LoginButtonSection>
-        <LoginButton>Zaloguj się</LoginButton>
-        </LoginButtonSection>
+  return (
+    <NavigationContainer>
+      <LoginButtonSection>
+        <Link to={"/login"}>
+          <LoginButton>Zaloguj się</LoginButton>
+        </Link>
+      </LoginButtonSection>
     </NavigationContainer>
-}
-
+  );
+};
 
 export default NavigationBar;

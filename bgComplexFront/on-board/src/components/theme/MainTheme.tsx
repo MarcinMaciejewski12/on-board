@@ -7,15 +7,14 @@ export const Theme = {
     teriary: "#1E96FC",
   },
   margin: {
-    marginTop: '8vh',
-  }
+    marginTop: "8vh",
+  },
 };
-
 
 export const SubmitButton = styled.button`
   width: 15vw;
   height: 5vh;
-  background-color: #2ecc71;
+  background-color: ${(props) => props.theme.colors.teriary};
   border: none;
   color: white;
   font-size: large;
