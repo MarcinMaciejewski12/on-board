@@ -3,18 +3,13 @@ import {
   RecommendationContainer,
   Header,
 } from "./RecommendationCarouselStyle";
-import PersonsCard from "../personsCard/PersonsCard";
+import PersonsCard from "../../../components/personsCard/PersonsCard";
 
 const RecommendationCarousel = () => {
-  
-
-
-
-
   return (
     <RecommendationSection>
       <RecommendationContainer>
-      <Header>
+        <Header>
           <h1>Co myślą o nas inni?</h1>
         </Header>
         <PersonsCard />

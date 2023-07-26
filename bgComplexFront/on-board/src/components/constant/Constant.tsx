@@ -19,3 +19,5 @@ export const persons = [
     star: 5,
   },
 ];
+
+export const gamesUrl = "https://api.boardgameatlas.com/api/search";

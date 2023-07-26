@@ -1,4 +1,4 @@
-import { SingUpButton } from "../theme/buttons/ButtonStyles";
+import { SingUpButton } from "../../components/buttons/ButtonStyles";
 import {
   ButtonContainer,
   DescriptionContainer,
@@ -14,9 +14,11 @@ import {
   RightLeaves,
   DiceSection,
   ButtonDisplay,
+  DiceContainer,
+  RightLeavesContainer,
 } from "./LandingPageStyle";
 import RecommendationCarousel from "./recomendationCarousel/RecomendationCarousel";
-import { Dice } from "../theme/blobs/blob";
+import { Dice } from "../../components/theme/blobs/blob";
 import Footer from "./footer/Footer";
 import { motion } from "framer-motion";
 
@@ -52,14 +54,12 @@ const LadningPage = () => {
       </MainDescriptionBackground>
       <DiceSection>
         <SecondDescriptionBackground>
-          <div style={{ marginLeft: "4rem" }}>
+          <DiceContainer>
             <Dice />
-          </div>
+          </DiceContainer>
           <div>
             <LogoContainer>
-              <h1 style={{ color: "white", fontSize: "50px" }}>
-                KOŚCI ZOSTAŁY RZUCONE
-              </h1>
+              <h1>KOŚCI ZOSTAŁY RZUCONE</h1>
             </LogoContainer>
             <DescriptionContainer>
               <MainDescription>
@@ -87,7 +87,7 @@ const LadningPage = () => {
             STATYSTYKI ROZGRYWEK
           </LeftLeaves>
         </LeavesContainer>
-        <LeavesContainer style={{ justifyContent: "end" }}>
+        <RightLeavesContainer>
           <RightLeaves
             initial={{ x: 100, opacity: 0 }}
             viewport={{ once: true }}
@@ -96,7 +96,7 @@ const LadningPage = () => {
           >
             LISTA ULUBIONYCH GIER
           </RightLeaves>
-        </LeavesContainer>
+        </RightLeavesContainer>
         <LeavesContainer>
           <LeftLeaves
             initial={{ x: "-100%", opacity: 0 }}
@@ -107,7 +107,7 @@ const LadningPage = () => {
             KALENDARIUM WYDARZEŃ
           </LeftLeaves>
         </LeavesContainer>
-        <LeavesContainer style={{ justifyContent: "end" }}>
+        <RightLeavesContainer>
           <RightLeaves
             initial={{ x: "100%", opacity: 0 }}
             viewport={{ once: true }}
@@ -116,7 +116,7 @@ const LadningPage = () => {
           >
             TWOJA GRUPA ZNAJOMYCH
           </RightLeaves>
-        </LeavesContainer>
+        </RightLeavesContainer>
       </EncouragingLeaves>
       <RecommendationCarousel />
       <Footer />
