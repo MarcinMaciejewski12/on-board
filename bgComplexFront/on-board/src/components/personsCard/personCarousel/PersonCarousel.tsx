@@ -8,21 +8,25 @@ import {
   StarContainer,
 } from "../PersonsCardStyle";
 
-const PersonCarousel: React.FC<{ slideIndex: number }> = ({ slideIndex }) => {
+interface Props {
+  slideIndex: number;
+}
+
+const PersonCarousel = ({ slideIndex }: Props) => {
   return (
     <>
-      {persons.map((person, index) => {
+      {persons.map(({ star, name, description }, index) => {
         let starContainer = [];
-        for (let star = 0; person.star > star; star++) {
+        for (let starValue = 0; star > starValue; starValue++) {
           starContainer.push(Star());
         }
         return (
           <Card key={index}>
             {slideIndex === index && (
-              <MainContainer key={index}>
-                <Header>{person.name}</Header>
+              <MainContainer>
+                <Header>{name}</Header>
                 <Description>
-                  <p>{person.description}</p>
+                  <p>{description}</p>
                 </Description>
                 <StarContainer>{starContainer}</StarContainer>
               </MainContainer>

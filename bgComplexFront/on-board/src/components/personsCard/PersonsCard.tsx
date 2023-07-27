@@ -10,7 +10,7 @@ import { persons } from "../constant/Constant";
 import PersonCarousel from "./personCarousel/PersonCarousel";
 
 const PersonsCard = () => {
-  const [personIndex, setPersonIndex] = useState<number>(0);
+  const [personIndex, setPersonIndex] = useState(0);
 
   const prevSlide = () => {
     personIndex === 0
