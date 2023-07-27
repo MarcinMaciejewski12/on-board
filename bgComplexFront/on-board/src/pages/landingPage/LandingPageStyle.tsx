@@ -35,7 +35,8 @@ export const LogoContainer = styled.div`
     color: ${(props) => props.theme.colors.primary};
     font-size: 70px;
     font-weight: 900;
-
+    font-size: 50px;
+    color: white;
     & span {
       color: ${(props) => props.theme.colors.teriary};
     }
@@ -85,6 +86,10 @@ export const ButtonDisplay = styled.div`
   justify-content: space-around;
 `;
 
+export const DiceContainer = styled.div`
+  margin-left: 4rem;
+`;
+
 export const SecondDescriptionBackground = styled.div`
   background: ${(props) => props.theme.colors.secondary};
   width: 80vw;
@@ -110,6 +115,15 @@ export const LeavesContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   margin-top: 7rem;
+`;
+
+export const RightLeavesContainer = styled.div`
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  margin-top: 7rem;
+  justify-content: end;
 `;
 
 export const LeftLeaves = styled(motion.div)`

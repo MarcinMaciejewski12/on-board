@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Theme = {
@@ -11,7 +12,7 @@ export const Theme = {
   },
 };
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled(motion.button)`
   width: 15vw;
   height: 5vh;
   background-color: ${(props) => props.theme.colors.teriary};

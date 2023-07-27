@@ -7,7 +7,7 @@ import {
   ButtonContainer,
   LoginIntroductionContainer,
 } from "./LoginWindowStyle";
-import { SubmitButton } from "../theme/MainTheme";
+import { SubmitButton } from "../../components/theme/MainTheme";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMutation } from "react-query";
@@ -104,14 +104,17 @@ const LoginWindow = () => {
                 },
               }}
             >
-              <SubmitButton onClick={loginButtonHandler}>
+              <SubmitButton
+                whileHover={{ scale: 1.1 }}
+                onClick={loginButtonHandler}
+              >
                 Zaloguj się
               </SubmitButton>
             </ButtonContainer>
           </LoginForm>
         </LoginModal>
         <LoginIntroductionContainer>
-          <h1>Wejdź od świata gier!</h1>
+          <h1>Wejdź do świata gier!</h1>
         </LoginIntroductionContainer>
       </LoginContainer>
     </>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LoginButton from "../theme/buttons/LoginButton";
+import LoginButton from "../buttons/LoginButton";
 import { LoginButtonSection, NavigationContainer } from "./NavigationBarStyle";
 
 const NavigationBar = () => {

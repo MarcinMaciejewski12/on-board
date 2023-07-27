@@ -15,7 +15,7 @@ export const RecommendationContainer = styled.div`
   height: 85vh;
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: 20px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 `;
 
 export const Header = styled.div`
@@ -32,19 +32,23 @@ export const Header = styled.div`
 `;
 
 export const BackArrowContainer = styled(motion.div)`
-height: 100%;
-width: 5vw;
-display: flex;
-align-items: center;
-justify-content: center;
-`
+  height: 100%;
+  width: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const ForwardArrowContainer = styled(motion.div)`
-height: 100%;
-width: 5vw;
-display: flex;
-align-items: center;
-justify-content: center;
-`
+  height: 100%;
+  width: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ArrowContainer = styled.div`
+  cursor: pointer;
+`;
 
 export const CarouselContainer = styled(motion.div)`
   width: 75vw;
@@ -52,4 +56,8 @@ export const CarouselContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  div {
+    cursor: pointer;
+  }
 `;

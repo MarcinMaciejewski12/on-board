@@ -6,6 +6,7 @@ export const LoginContainer = styled(motion.div)`
   height: 100vh;
   background: ${(props) => props.theme.colors.primary};
   display: flex;
+  overflow: hidden;
 `;
 
 export const LoginIntroductionContainer = styled(motion.div)`
@@ -14,7 +15,6 @@ export const LoginIntroductionContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-
   & h1 {
     color: white;
     font-size: 40px;
@@ -29,7 +29,7 @@ export const LoginModal = styled(motion.div)`
   background: ${(props) => props.theme.colors.secondary};
   border-radius: 0px 350px 0px 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  overflow: auto;
+  overflow: hidden;
 `;
 
 export const LoginForm = styled.div`

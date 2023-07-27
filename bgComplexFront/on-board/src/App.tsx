@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import { Theme } from "./components/theme/MainTheme";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GamesList from "./components/gamesList/GamesList";
-import LandingPage from "./components/landingPage/LandingPage";
+import LandingPage from "./pages/landingPage/LandingPage";
 import NavigationBar from "./components/navigation/NavigationBar";
-import LoginWindow from "./components/loginWindow/LoginWindow";
+import LoginWindow from "./pages/loginWindow/LoginWindow";
 function App() {
   const queryClient = new QueryClient();
 
