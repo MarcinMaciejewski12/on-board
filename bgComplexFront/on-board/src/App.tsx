@@ -2,10 +2,11 @@ import { ThemeProvider } from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import { Theme } from "./components/theme/MainTheme";
 import { QueryClient, QueryClientProvider } from "react-query";
-import GamesList from "./components/gamesList/GamesList";
+// import GamesList from "./components/gamesList/GamesList";
 import LandingPage from "./pages/landingPage/LandingPage";
 import NavigationBar from "./components/navigation/NavigationBar";
 import LoginWindow from "./pages/loginWindow/LoginWindow";
+import Dashboard from "./pages/dashboard/Dashboard";
 function App() {
   const queryClient = new QueryClient();
 
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginWindow />} />
-          <Route path="/gamesList" element={<GamesList />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </ThemeProvider>
     </QueryClientProvider>

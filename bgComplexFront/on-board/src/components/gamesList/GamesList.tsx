@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { GamesValuesContainer, GameName } from "../theme/list/ListStyle";
 import { gamesUrl } from "../constant/Constant";
-
 interface GameModel {
   handle: string;
   description: string;
@@ -18,11 +17,12 @@ const GamesList = () => {
     // TODO: refactor(try with SWR)
     const fetchData = async () => {
       try {
+        console.log(process.env.ID_VALUE);
         const gamesList = await axios
           .get(gamesUrl, {
             params: {
               name: "",
-              client_id: process.env.client_id,
+              client_id: process.env.ID_VALUE,
             },
           })
           .then((res) => {
