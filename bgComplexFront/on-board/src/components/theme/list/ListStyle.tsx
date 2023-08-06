@@ -3,37 +3,64 @@ import styled from "styled-components";
 export const GameCollectionContainer = styled.div`
   width: 50vw;
   height: 60vh;
-  margin-left: 3rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: red;
 `;
 
 export const ListContainer = styled.div`
   width: 45vw;
-  height: 55vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   justify-content: center;
 `;
 
 export const GamesValuesContainer = styled.div`
   width: 45vw;
   max-width: 44vw;
+  height: 130px;
+  border: 0.5px solid white;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  width: 100%;
 `;
 
 export const GameName = styled.div`
   width: 100%;
   height: 5vh;
+  /* margin-left: 10px; */
+  color: ${(props) => props.theme.colors.quatenary};
+  font-size: 27px;
+  letter-spacing: 1px;
+`;
+
+export const AddGameButton = styled.button`
+  height: 5vh;
+  width: 200px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: none;
+  font-size: 16px;
+  border: none;
+  color: ${(props) => props.theme.colors.teriary};
+`;
+
+export const AdditionalGameInfo = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: start;
-  padding: 1rem;
+  justify-content: space-between;
+  margin: 10px;
+  margin-left: 10px;
+  width: 100%;
+  color: ${(props) => props.theme.colors.teriary};
 `;

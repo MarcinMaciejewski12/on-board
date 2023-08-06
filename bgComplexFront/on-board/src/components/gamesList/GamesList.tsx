@@ -2,12 +2,19 @@ import { GamesListView } from "./GamesListStyle";
 import List from "../theme/list/List";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { GamesValuesContainer, GameName } from "../theme/list/ListStyle";
-import { gamesUrl } from "../constant/Constant";
+import {
+  GamesValuesContainer,
+  GameName,
+  AddGameButton,
+  Header,
+  AdditionalGameInfo,
+} from "../theme/list/ListStyle";
+import { gamesUrl, CLIENT_ID } from "../constant/Constant";
 interface GameModel {
   handle: string;
   description: string;
   id: string;
+  players: number;
 }
 
 const GamesList = () => {
@@ -17,12 +24,11 @@ const GamesList = () => {
     // TODO: refactor(try with SWR)
     const fetchData = async () => {
       try {
-        console.log(process.env.ID_VALUE);
         const gamesList = await axios
           .get(gamesUrl, {
             params: {
               name: "",
-              client_id: process.env.ID_VALUE,
+              client_id: CLIENT_ID, //Need to add this to const file.
             },
           })
           .then((res) => {
@@ -36,18 +42,33 @@ const GamesList = () => {
     fetchData();
   }, []);
 
+  const getUpperCaseLetter = (letter: string) => {
+    let firstLetter = letter.charAt(0);
+    let letterToUpperCase = firstLetter.toUpperCase();
+
+    return letterToUpperCase + letter.slice(1);
+  };
+
   return (
     <GamesListView>
       <List>
-        {games.length > 0
-          ? games.map((game: GameModel) => {
-              return (
-                <GamesValuesContainer key={game.id}>
-                  <GameName>{game.handle}</GameName>
-                </GamesValuesContainer>
-              );
-            })
-          : "games not found"}
+        {games.length > 0 ? (
+          games.map((game: GameModel) => {
+            return (
+              <GamesValuesContainer key={game.id}>
+                <Header>
+                  <GameName>{getUpperCaseLetter(game.handle)}</GameName>
+                  <AddGameButton>+ Dodaj rozgrywkę</AddGameButton>
+                </Header>
+                <AdditionalGameInfo>
+                  <span>Liczba graczy: {game.players}</span>
+                </AdditionalGameInfo>
+              </GamesValuesContainer>
+            );
+          })
+        ) : (
+          <span style={{ color: "white" }}>"games not found"</span>
+        )}
       </List>
     </GamesListView>
   );
