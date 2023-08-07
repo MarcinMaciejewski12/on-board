@@ -62,5 +62,6 @@ export const AdditionalGameInfo = styled.div`
   margin: 10px;
   margin-left: 10px;
   width: 100%;
+  opacity: 0.6;
   color: ${(props) => props.theme.colors.teriary};
 `;

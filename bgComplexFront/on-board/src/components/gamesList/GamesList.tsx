@@ -53,15 +53,15 @@ const GamesList = () => {
     <GamesListView>
       <List>
         {games.length > 0 ? (
-          games.map((game: GameModel) => {
+          games.map(({ id, handle, players }: GameModel) => {
             return (
-              <GamesValuesContainer key={game.id}>
+              <GamesValuesContainer key={id}>
                 <Header>
-                  <GameName>{getUpperCaseLetter(game.handle)}</GameName>
+                  <GameName>{getUpperCaseLetter(handle)}</GameName>
                   <AddGameButton>+ Dodaj rozgrywkę</AddGameButton>
                 </Header>
                 <AdditionalGameInfo>
-                  <span>Liczba graczy: {game.players}</span>
+                  <span>Liczba graczy: {players}</span>
                 </AdditionalGameInfo>
               </GamesValuesContainer>
             );
