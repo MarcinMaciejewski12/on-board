@@ -23,6 +23,7 @@ export const register = async (req: any, res: any, next: any) => {
 };
 
 export const login = async (req: any, res: any, next: any) => {
+  // console.log(req.isAuthenticated());
   try {
     const userLogin = await User.findOne({
       username: req.body.username,

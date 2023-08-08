@@ -51,6 +51,7 @@ const GamesList = () => {
 
   return (
     <GamesListView>
+      <h1>Twoja biblioteka:</h1>
       <List>
         {games.length > 0 ? (
           games.map(({ id, handle, players }: GameModel) => {
@@ -67,7 +68,9 @@ const GamesList = () => {
             );
           })
         ) : (
-          <span style={{ color: "white" }}>"games not found"</span>
+          <span style={{ color: "white" }}>
+            Poczekaj chwile, zerknę do instrukcji...
+          </span>
         )}
       </List>
     </GamesListView>
