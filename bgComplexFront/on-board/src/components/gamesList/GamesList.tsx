@@ -28,7 +28,7 @@ const GamesList = () => {
           .get(gamesUrl, {
             params: {
               name: "",
-              client_id: CLIENT_ID, //Need to add this to const file.
+              client_id: CLIENT_ID,
             },
           })
           .then((res) => {
@@ -42,10 +42,18 @@ const GamesList = () => {
     fetchData();
   }, []);
 
+  // const nameWithoutDash = (letters: string) => {
+  //   console.log(letters);
+  //   if (/-/.test(letters)) {
+  //     letters.replace(/-/g, " ");
+  //   }
+  // };
+
   const getUpperCaseLetter = (letter: string) => {
     let firstLetter = letter.charAt(0);
     let letterToUpperCase = firstLetter.toUpperCase();
 
+    // nameWithoutDash(letter);
     return letterToUpperCase + letter.slice(1);
   };
 

@@ -5,6 +5,7 @@ import {
   Navigation,
   NavigationContainer,
 } from "./NavigationBarStyle";
+import { motion } from "framer-motion";
 
 const NavigationBar = () => {
   const location = useLocation();
@@ -13,16 +14,40 @@ const NavigationBar = () => {
       {location.pathname !== "/" ? (
         <ul>
           <Navigation>
-            <li style={{ cursor: "pointer" }}>Znajomi</li>
+            <motion.li
+              whileHover={{
+                scale: 1.2,
+              }}
+            >
+              Znajomi
+            </motion.li>
           </Navigation>
           <Navigation>
-            <li style={{ cursor: "pointer" }}>Lista gier</li>
+            <motion.li
+              whileHover={{
+                scale: 1.2,
+              }}
+            >
+              Lista gier
+            </motion.li>
           </Navigation>
           <Navigation>
-            <li style={{ cursor: "pointer" }}>Kalendarium</li>
+            <motion.li
+              whileHover={{
+                scale: 1.2,
+              }}
+            >
+              Kalendarium
+            </motion.li>
           </Navigation>
           <Navigation>
-            <li style={{ cursor: "pointer" }}>Ranking</li>
+            <motion.li
+              whileHover={{
+                scale: 1.2,
+              }}
+            >
+              Ranking
+            </motion.li>
           </Navigation>
         </ul>
       ) : (

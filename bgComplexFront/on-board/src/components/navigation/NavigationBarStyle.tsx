@@ -22,15 +22,18 @@ export const Navigation = styled.div`
   width: 60vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 8vh;
+  /* grid-template-rows: 8vh; */
 
   & li {
     width: 15vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 16px;
+
+    cursor: pointer;
   }
 `;
 
