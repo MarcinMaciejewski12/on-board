@@ -7,6 +7,7 @@ import LandingPage from "./pages/landingPage/LandingPage";
 import NavigationBar from "./components/navigation/NavigationBar";
 import LoginWindow from "./pages/loginWindow/LoginWindow";
 import Dashboard from "./pages/dashboard/Dashboard";
+import GamesListWindow from "./components/gamesList/GamesListWindow";
 function App() {
   const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginWindow />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/gamesList" element={<GamesListWindow />} />
         </Routes>
       </ThemeProvider>
     </QueryClientProvider>

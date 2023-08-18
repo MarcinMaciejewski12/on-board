@@ -1,17 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import LoginButton from "../buttons/LoginButton";
 import {
+  EmptyNavigationBar,
   LoginButtonSection,
   Navigation,
   NavigationContainer,
 } from "./NavigationBarStyle";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import Cookie from "js-cookie";
 
 const NavigationBar = () => {
-  const location = useLocation();
+  const [hasAccessToken, setHasAccessToken] = useState(false);
+
   return (
     <NavigationContainer>
-      {location.pathname !== "/" ? (
+      {hasAccessToken ? (
         <ul>
           <Navigation>
             <motion.li
@@ -51,13 +55,16 @@ const NavigationBar = () => {
           </Navigation>
         </ul>
       ) : (
-        <ul style={{ display: "none" }}></ul>
+        <EmptyNavigationBar />
       )}
       <LoginButtonSection>
-        {location.pathname === "/" || location.pathname === "/login" ? (
-          <Link to={"/login"}>
-            <LoginButton>Zaloguj się</LoginButton>
-          </Link>
+        {hasAccessToken ? (
+          <>
+            <EmptyNavigationBar />
+            <Link to={"/login"}>
+              <LoginButton>Zaloguj się</LoginButton>
+            </Link>
+          </>
         ) : (
           <Link to={"/"}>
             <LoginButton>Wyloguj się</LoginButton>

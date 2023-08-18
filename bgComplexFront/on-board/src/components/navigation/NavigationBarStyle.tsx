@@ -51,3 +51,8 @@ export const LoginButtonSection = styled.div`
   justify-content: center;
   margin-right: 50px;
 `;
+
+export const EmptyNavigationBar = styled.div`
+  width: 85vw;
+  height: 8vh;
+`;
