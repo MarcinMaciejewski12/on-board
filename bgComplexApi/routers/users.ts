@@ -1,7 +1,7 @@
 import express from "express";
-import { updateUser, deleteUser, getUser } from "../controllers/userControler";
 import { getGames } from "../controllers/gameControler";
-import { verifyAdmin, verifyToken, verifyUser } from "../utils/tokenVeryfy";
+import { deleteUser, getUser, updateUser } from "../controllers/userControler";
+import { verifyAdmin, verifyUser } from "../utils/tokenVeryfy";
 
 const router = express.Router();
 

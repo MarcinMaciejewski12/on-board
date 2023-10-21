@@ -20,4 +20,6 @@ export const persons = [
   },
 ];
 
+// API CONSTANTS
 export const gamesUrl = "https://api.boardgameatlas.com/api/search";
+export const CLIENT_ID = "6I6aCqsqNM";

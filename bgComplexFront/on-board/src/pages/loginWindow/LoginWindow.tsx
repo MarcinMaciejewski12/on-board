@@ -1,22 +1,25 @@
-import { SetStateAction, useState } from "react";
-import {
-  LoginContainer,
-  LoginModal,
-  LoginForm,
-  InputBlock,
-  ButtonContainer,
-  LoginIntroductionContainer,
-} from "./LoginWindowStyle";
-import { SubmitButton } from "../../components/theme/MainTheme";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { SetStateAction, useContext, useState } from "react";
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthContext";
+import { SubmitButton } from "../../components/theme/MainTheme";
+import {
+  ButtonContainer,
+  InputBlock,
+  LoginContainer,
+  LoginForm,
+  LoginIntroductionContainer,
+  LoginModal,
+} from "./LoginWindowStyle";
 
 const LoginWindow = () => {
   const navigate = useNavigate();
 
   const [loginValue, setLogin] = useState("");
   const [passwordValue, setPassword] = useState("");
+
+  const { dispatch, loading } = useContext(AuthContext);
 
   const loginHandler = (event: {
     target: { value: SetStateAction<string> };
@@ -41,14 +44,16 @@ const LoginWindow = () => {
         username: loginValue,
         password: passwordValue,
       });
-
+      dispatch({ type: "LOGIN_START" });
       if (!res.error) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: res._id });
         navigate("/dashboard");
       } else {
         console.log(`There is little error: ${res.error}`);
       }
     } catch (error) {
-      console.log(error);
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
+      return error;
     }
   };
 
@@ -107,6 +112,7 @@ const LoginWindow = () => {
               <SubmitButton
                 whileHover={{ scale: 1.1 }}
                 onClick={loginButtonHandler}
+                disabled={loading}
               >
                 Zaloguj się
               </SubmitButton>

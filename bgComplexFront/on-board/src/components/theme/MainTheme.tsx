@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 export const Theme = {
   colors: {
-    primary: "#FFC600",
+    primary: "#f8c301",
     secondary: "#3C3C3C",
     teriary: "#1E96FC",
+    quatenary: "#FCF300",
   },
   margin: {
     marginTop: "8vh",

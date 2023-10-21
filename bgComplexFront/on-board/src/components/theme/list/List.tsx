@@ -3,7 +3,9 @@ import { GameCollectionContainer, ListContainer } from "./ListStyle";
 const List = (props: any) => {
   return (
     <GameCollectionContainer>
-      <ListContainer>{props.children}</ListContainer>
+      <ListContainer>
+        <div>{props.children}</div>
+      </ListContainer>
     </GameCollectionContainer>
   );
 };

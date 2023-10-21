@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
-import { createError } from "../utils/error";
-import User from "../models/UserModel";
 import jwt from "jsonwebtoken";
+import User from "../models/UserModel";
+import { createError } from "../utils/error";
 
 export const register = async (req: any, res: any, next: any) => {
   const hash = bcrypt.genSaltSync(10);

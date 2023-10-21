@@ -1,14 +1,20 @@
-import { GamesListView } from "./GamesListStyle";
-import List from "../theme/list/List";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { GamesValuesContainer, GameName } from "../theme/list/ListStyle";
-import { gamesUrl } from "../constant/Constant";
-
+import { CLIENT_ID, gamesUrl } from "../constant/Constant";
+import List from "../theme/list/List";
+import {
+  AddGameButton,
+  AdditionalGameInfo,
+  GameName,
+  GamesValuesContainer,
+  Header,
+} from "../theme/list/ListStyle";
+import { GamesListView } from "./GamesListStyle";
 interface GameModel {
   handle: string;
   description: string;
   id: string;
+  players: number;
 }
 
 const GamesList = () => {
@@ -22,7 +28,7 @@ const GamesList = () => {
           .get(gamesUrl, {
             params: {
               name: "",
-              client_id: process.env.client_id,
+              client_id: CLIENT_ID,
             },
           })
           .then((res) => {
@@ -36,18 +42,36 @@ const GamesList = () => {
     fetchData();
   }, []);
 
+  const getUpperCaseLetter = (letter: string) => {
+    let firstLetter = letter.charAt(0);
+    let letterToUpperCase = firstLetter.toUpperCase();
+
+    return letterToUpperCase + letter.slice(1);
+  };
+
   return (
     <GamesListView>
+      <h1>Twoja biblioteka:</h1>
       <List>
-        {games.length > 0
-          ? games.map((game: GameModel) => {
-              return (
-                <GamesValuesContainer key={game.id}>
-                  <GameName>{game.handle}</GameName>
-                </GamesValuesContainer>
-              );
-            })
-          : "games not found"}
+        {games.length ? (
+          games.map(({ id, handle, players }: GameModel) => {
+            return (
+              <GamesValuesContainer key={id}>
+                <Header>
+                  <GameName>{getUpperCaseLetter(handle)}</GameName>
+                  <AddGameButton>+ Dodaj rozgrywkę</AddGameButton>
+                </Header>
+                <AdditionalGameInfo>
+                  <span>Liczba graczy: {players}</span>
+                </AdditionalGameInfo>
+              </GamesValuesContainer>
+            );
+          })
+        ) : (
+          <span style={{ color: "white" }}>
+            Poczekaj chwile, zerknę do instrukcji...
+          </span>
+        )}
       </List>
     </GamesListView>
   );
