@@ -1,15 +1,15 @@
-import { GamesListView } from "./GamesListStyle";
-import List from "../theme/list/List";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { CLIENT_ID, gamesUrl } from "../constant/Constant";
+import List from "../theme/list/List";
 import {
-  GamesValuesContainer,
-  GameName,
   AddGameButton,
-  Header,
   AdditionalGameInfo,
+  GameName,
+  GamesValuesContainer,
+  Header,
 } from "../theme/list/ListStyle";
-import { gamesUrl, CLIENT_ID } from "../constant/Constant";
+import { GamesListView } from "./GamesListStyle";
 interface GameModel {
   handle: string;
   description: string;
@@ -42,18 +42,10 @@ const GamesList = () => {
     fetchData();
   }, []);
 
-  // const nameWithoutDash = (letters: string) => {
-  //   console.log(letters);
-  //   if (/-/.test(letters)) {
-  //     letters.replace(/-/g, " ");
-  //   }
-  // };
-
   const getUpperCaseLetter = (letter: string) => {
     let firstLetter = letter.charAt(0);
     let letterToUpperCase = firstLetter.toUpperCase();
 
-    // nameWithoutDash(letter);
     return letterToUpperCase + letter.slice(1);
   };
 
@@ -61,7 +53,7 @@ const GamesList = () => {
     <GamesListView>
       <h1>Twoja biblioteka:</h1>
       <List>
-        {games.length > 0 ? (
+        {games.length ? (
           games.map(({ id, handle, players }: GameModel) => {
             return (
               <GamesValuesContainer key={id}>

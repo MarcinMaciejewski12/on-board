@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-auth-kit": "^2.12.6"
+    "react-auth-kit": "^2.12.6",
+    "vm-browserify": "^1.1.2"
   }
 }

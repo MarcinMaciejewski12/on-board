@@ -1,21 +1,25 @@
-import { Link, useLocation } from "react-router-dom";
-import LoginButton from "../buttons/LoginButton";
+//Hooks
+//Styles
 import {
   EmptyNavigationBar,
   LoginButtonSection,
   Navigation,
   NavigationContainer,
 } from "./NavigationBarStyle";
+//Components
+import LoginButton from "../buttons/LoginButton";
+// Library
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import Cookie from "js-cookie";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthContext";
 
 const NavigationBar = () => {
-  const [hasAccessToken, setHasAccessToken] = useState(false);
+  const { user, dispatch } = useContext(AuthContext);
 
   return (
     <NavigationContainer>
-      {hasAccessToken ? (
+      {user ? (
         <ul>
           <Navigation>
             <motion.li
@@ -58,18 +62,11 @@ const NavigationBar = () => {
         <EmptyNavigationBar />
       )}
       <LoginButtonSection>
-        {hasAccessToken ? (
-          <>
-            <EmptyNavigationBar />
-            <Link to={"/login"}>
-              <LoginButton>Zaloguj się</LoginButton>
-            </Link>
-          </>
-        ) : (
-          <Link to={"/"}>
-            <LoginButton>Wyloguj się</LoginButton>
-          </Link>
-        )}
+        <Link to={user ? "/" : "/login"}>
+          <LoginButton onClick={() => dispatch({ type: "LOGOUT" })}>
+            {user ? "Wyloguj się" : "Zaloguj się"}
+          </LoginButton>
+        </Link>
       </LoginButtonSection>
     </NavigationContainer>
   );
