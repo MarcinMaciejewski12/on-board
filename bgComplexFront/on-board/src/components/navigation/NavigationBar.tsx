@@ -16,8 +16,8 @@ import { AuthContext } from "../../auth/AuthContext";
 
 const NavigationBar = () => {
   const { user, dispatch } = useContext(AuthContext);
-
   return (
+    // Refactor use map for destructure return statement
     <NavigationContainer>
       {user ? (
         <ul>
@@ -36,7 +36,9 @@ const NavigationBar = () => {
                 scale: 1.2,
               }}
             >
-              Lista gier
+              <Link style={{ textDecoration: "none" }} to="/gamesList">
+                Lista gier
+              </Link>
             </motion.li>
           </Navigation>
           <Navigation>

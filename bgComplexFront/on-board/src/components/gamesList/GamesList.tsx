@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CLIENT_ID, gamesUrl } from "../constant/Constant";
+import { Header } from "../personsCard/PersonsCardStyle";
 import List from "../theme/list/List";
 import {
   AddGameButton,
   AdditionalGameInfo,
   GameName,
   GamesValuesContainer,
-  Header,
 } from "../theme/list/ListStyle";
 import { GamesListView } from "./GamesListStyle";
 interface GameModel {
@@ -17,7 +17,7 @@ interface GameModel {
   players: number;
 }
 
-const GamesList = () => {
+const MyGamesList = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -51,9 +51,9 @@ const GamesList = () => {
 
   return (
     <GamesListView>
-      <h1>Twoja biblioteka:</h1>
+      <h1>Lista gier:</h1>
       <List>
-        {games.length ? (
+        {games ? (
           games.map(({ id, handle, players }: GameModel) => {
             return (
               <GamesValuesContainer key={id}>
@@ -77,4 +77,4 @@ const GamesList = () => {
   );
 };
 
-export default GamesList;
+export default MyGamesList;
