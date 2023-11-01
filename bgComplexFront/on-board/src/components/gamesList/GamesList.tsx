@@ -1,65 +1,55 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CLIENT_ID, gamesUrl } from "../constant/Constant";
-import { Header } from "../personsCard/PersonsCardStyle";
-import List from "../theme/list/List";
+import List from "../../theme/list/List";
 import {
   AddGameButton,
   AdditionalGameInfo,
   GameName,
   GamesValuesContainer,
-} from "../theme/list/ListStyle";
+} from "../../theme/list/ListStyle";
+import { Header } from "../personsCard/PersonsCardStyle";
 import { GamesListView } from "./GamesListStyle";
 interface GameModel {
-  handle: string;
+  name: string;
   description: string;
-  id: string;
+  _id: string;
   players: number;
+  playTime: number;
+  type: string;
+  difficulty: number;
 }
 
 const MyGamesList = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    // TODO: refactor(try with SWR)
-    const fetchData = async () => {
-      try {
-        const gamesList = await axios
-          .get(gamesUrl, {
-            params: {
-              name: "",
-              client_id: CLIENT_ID,
-            },
-          })
-          .then((res) => {
-            return res.data.games;
-          });
-        setGames(gamesList);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
+    axios
+      .get("http://localhost:8800/api/games")
+      .then((repsonse) => {
+        setGames(repsonse.data);
+      })
+      .catch((error) => {
+        console.log("siemano");
+      });
   }, []);
 
-  const getUpperCaseLetter = (letter: string) => {
-    let firstLetter = letter.charAt(0);
-    let letterToUpperCase = firstLetter.toUpperCase();
-
-    return letterToUpperCase + letter.slice(1);
-  };
+  useEffect(() => {
+    console.log(games);
+  }, [games]);
 
   return (
     <GamesListView>
       <h1>Lista gier:</h1>
       <List>
         {games ? (
-          games.map(({ id, handle, players }: GameModel) => {
+          games.map(({ _id, name, players }: GameModel) => {
             return (
-              <GamesValuesContainer key={id}>
+              <GamesValuesContainer key={_id}>
                 <Header>
-                  <GameName>{getUpperCaseLetter(handle)}</GameName>
-                  <AddGameButton>+ Dodaj rozgrywkę</AddGameButton>
+                  <div>
+                    <GameName>{name}</GameName>
+                  </div>
+                  <AddGameButton>+ Dodaj do biblioteki</AddGameButton>
                 </Header>
                 <AdditionalGameInfo>
                   <span>Liczba graczy: {players}</span>

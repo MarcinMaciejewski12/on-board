@@ -1,26 +1,26 @@
+import { motion } from "framer-motion";
 import { SingUpButton } from "../../components/buttons/ButtonStyles";
+import { Dice } from "../../theme/blobs/blob";
 import {
   ButtonContainer,
+  ButtonDisplay,
   DescriptionContainer,
+  DiceContainer,
+  DiceSection,
+  EncouragingLeaves,
   LandingPageContainer,
+  LeavesContainer,
+  LeftLeaves,
   LogoAndDescriptionContainer,
   LogoContainer,
   MainDescription,
   MainDescriptionBackground,
-  SecondDescriptionBackground,
-  EncouragingLeaves,
-  LeavesContainer,
-  LeftLeaves,
   RightLeaves,
-  DiceSection,
-  ButtonDisplay,
-  DiceContainer,
   RightLeavesContainer,
+  SecondDescriptionBackground,
 } from "./LandingPageStyle";
-import RecommendationCarousel from "./recomendationCarousel/RecomendationCarousel";
-import { Dice } from "../../components/theme/blobs/blob";
 import Footer from "./footer/Footer";
-import { motion } from "framer-motion";
+import RecommendationCarousel from "./recomendationCarousel/RecomendationCarousel";
 
 const LadningPage = () => {
   return (

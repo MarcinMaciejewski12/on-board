@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const GamesListView = styled.div`
-  height: 95vh;
-  width: 90%;
-  overflow: auto;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;

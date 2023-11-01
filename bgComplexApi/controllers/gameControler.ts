@@ -1,4 +1,5 @@
 import Game from "../models/GamesModel";
+import User from "../models/UserModel";
 
 export const createGame = async (req: any, res: any, next: any) => {
   const newGames = new Game(req.body);
@@ -19,6 +20,19 @@ export const updateGame = async (req: any, res: any, next: any) => {
     res.status(200).json(updatedGames);
   } catch (err) {
     next(err);
+  }
+};
+
+export const userGames = async (req: any, res: any, next: any) => {
+  try {
+    const gameId = req.body.id;
+    const game = await Game.findById(gameId);
+    console.log(req);
+    if (!game) return res.status(404).json({ message: "game doesnt exist" });
+
+    const user = User.findByIdAndUpdate();
+  } catch (err) {
+    console.log(err);
   }
 };
 

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { Theme } from "./components/theme/MainTheme";
+import { Theme } from "./theme/MainTheme";
 // import GamesList from "./components/gamesList/GamesList";
 import { AuthContextProvider } from "./auth/AuthContext";
 import GamesListWindow from "./components/gamesList/GamesListWindow";

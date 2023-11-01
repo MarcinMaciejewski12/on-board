@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
     },
+    userGames: {
+      type: Array,
+      of: Object,
+    },
   },
   { timestamps: true }
 );

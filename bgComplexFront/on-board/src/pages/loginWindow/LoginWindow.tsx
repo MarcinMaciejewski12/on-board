@@ -3,7 +3,7 @@ import { SetStateAction, useContext, useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
-import { SubmitButton } from "../../components/theme/MainTheme";
+import { SubmitButton } from "../../theme/MainTheme";
 import {
   ButtonContainer,
   InputBlock,

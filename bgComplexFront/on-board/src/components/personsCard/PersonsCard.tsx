@@ -1,12 +1,12 @@
-import { ArrowForward, ArrowBack } from "../theme/blobs/blob";
+import { useState } from "react";
+import { persons } from "../../constant/Constant";
 import {
+  ArrowContainer,
+  BackArrowContainer,
   CarouselContainer,
   ForwardArrowContainer,
-  BackArrowContainer,
-  ArrowContainer,
 } from "../../pages/landingPage/recomendationCarousel/RecommendationCarouselStyle";
-import { useState } from "react";
-import { persons } from "../constant/Constant";
+import { ArrowBack, ArrowForward } from "../../theme/blobs/blob";
 import PersonCarousel from "./personCarousel/PersonCarousel";
 
 const PersonsCard = () => {

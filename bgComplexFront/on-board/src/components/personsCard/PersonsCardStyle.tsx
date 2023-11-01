@@ -23,14 +23,16 @@ export const SecondContainer = styled(motion.div)`
 `;
 
 export const Header = styled.div`
-  width: 20vw;
+  width: 100%;
+
   height: 8vh;
   display: flex;
   align-items: center;
+  padding: 0.3rem;
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 1rem;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const Description = styled.div`
