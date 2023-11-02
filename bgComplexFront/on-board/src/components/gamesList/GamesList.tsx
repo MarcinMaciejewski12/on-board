@@ -33,9 +33,7 @@ const MyGamesList = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(games);
-  }, [games]);
+  useEffect(() => {}, [games]);
 
   return (
     <GamesListView>

@@ -63,12 +63,14 @@ export const getGame = async (req: any, res: any, next: any) => {
 
 export const getUserGames = async (req: any, res: any) => {
   try {
+    // TODO
     const user = await User.findById(req.user.id);
     if (!user) return;
-    const games = user?.userGames;
-    if (!games) return;
-    console.log(games);
-    res.status(200).json(games);
+    const userGames = user?.userGames;
+
+    if (!userGames) return;
+
+    res.status(200).json(userGames);
   } catch (err) {
     console.log(err);
   }
