@@ -1,14 +1,15 @@
 import cors from "cors";
 import express from "express";
 import {
+  addGameToUserGames,
   createGame,
   deleteGame,
   getGame,
   getGames,
+  getUserGames,
   updateGame,
-  userGames,
 } from "../controllers/gameControler";
-import { verifyAdmin } from "../utils/tokenVeryfy";
+import { verifyAdmin, verifyUser } from "../utils/tokenVeryfy";
 
 const router = express.Router();
 router.use(cors());
@@ -17,7 +18,7 @@ router.use(cors());
 router.post("/", verifyAdmin, createGame);
 // UPDATE
 
-router.put("/addUserGame", userGames);
+router.put("/addUserGame", verifyUser, addGameToUserGames);
 router.put("/:id", verifyAdmin, updateGame);
 
 // DELETE
@@ -25,7 +26,7 @@ router.put("/:id", verifyAdmin, updateGame);
 router.delete("/:id", verifyAdmin, deleteGame);
 
 // GET
-
+router.get("/userGames", verifyUser, getUserGames);
 router.get("/:id", getGame);
 
 // GET ALL

@@ -23,14 +23,21 @@ export const updateGame = async (req: any, res: any, next: any) => {
   }
 };
 
-export const userGames = async (req: any, res: any, next: any) => {
+export const addGameToUserGames = async (req: any, res: any, next: any) => {
   try {
     const gameId = req.body.id;
     const game = await Game.findById(gameId);
-    console.log(req);
+
     if (!game) return res.status(404).json({ message: "game doesnt exist" });
 
-    const user = User.findByIdAndUpdate();
+    const userId = req.user.id;
+
+    const user = await User.findById(userId);
+
+    user?.userGames.push(game);
+
+    user?.save();
+    return res.status(200).send("Gra dodana do kolekcji użytkownika");
   } catch (err) {
     console.log(err);
   }
@@ -51,6 +58,19 @@ export const getGame = async (req: any, res: any, next: any) => {
     res.status(200).json(game);
   } catch (err) {
     next(err);
+  }
+};
+
+export const getUserGames = async (req: any, res: any) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) return;
+    const games = user?.userGames;
+    if (!games) return;
+    console.log(games);
+    res.status(200).json(games);
+  } catch (err) {
+    console.log(err);
   }
 };
 
