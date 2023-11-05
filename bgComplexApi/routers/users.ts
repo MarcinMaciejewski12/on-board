@@ -1,20 +1,20 @@
 import express from "express";
 import { getGames } from "../controllers/gameControler";
 import { deleteUser, getUser, updateUser } from "../controllers/userControler";
-import { verifyUser } from "../utils/tokenVerify";
+import { tokenAuth } from "../utils/tokenVerify";
 
 const router = express.Router();
 
 // UPDATE
-router.put("/:id", verifyUser, updateUser);
+router.put("/:id", tokenAuth, updateUser);
 
 // DELETE
-router.delete("/:id", verifyUser, deleteUser);
+router.delete("/:id", tokenAuth, deleteUser);
 
 // GET
-router.get("/:id", verifyUser, getUser);
+router.get("/:id", tokenAuth, getUser);
 
 // GET ALL
-router.get("/", verifyUser, getGames);
+router.get("/", tokenAuth, getGames);
 
 export default router;

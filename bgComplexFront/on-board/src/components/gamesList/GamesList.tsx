@@ -7,8 +7,8 @@ import {
   AdditionalGameInfo,
   GameName,
   GamesValuesContainer,
+  Header,
 } from "../../theme/list/ListStyle";
-import { Header } from "../personsCard/PersonsCardStyle";
 import { GamesListView } from "./GamesListStyle";
 const MyGamesList = () => {
   const [games, setGames] = useState([]);

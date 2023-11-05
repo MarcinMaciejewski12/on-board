@@ -61,10 +61,14 @@ export const getGame = async (req: any, res: any, next: any) => {
   }
 };
 
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export const getUserGames = async (req: any, res: any) => {
   try {
-    if (req.user) {
-      const user = await User.findById(req.user.id);
+    if (req.decodedUser) {
+      const user = await User.findById(req.decodedUser.id);
       if (!user) return;
 
       res.status(200).json(user.userGames);

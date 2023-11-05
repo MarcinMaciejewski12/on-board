@@ -9,24 +9,26 @@ import {
   getUserGames,
   updateGame,
 } from "../controllers/gameControler";
-import { verifyAdmin, verifyUser } from "../utils/tokenVerify";
+import { tokenAuth } from "../utils/tokenVerify";
+
+// import { verifyAdmin, verifyUser } from "../utils/tokenVerify";
 
 const router = express.Router();
 router.use(cors());
 // CREATE
 
-router.post("/", verifyAdmin, createGame);
+router.post("/", tokenAuth, createGame);
 // UPDATE
 
-router.put("/addUserGame", verifyUser, addGameToUserGames);
-router.put("/:id", verifyAdmin, updateGame);
+router.put("/addUserGame", tokenAuth, addGameToUserGames);
+router.put("/:id", tokenAuth, updateGame);
 
 // DELETE
 
-router.delete("/:id", verifyAdmin, deleteGame);
+router.delete("/:id", tokenAuth, deleteGame);
 
 // GET
-router.get("/userGames", verifyUser, getUserGames);
+router.get("/userGames", tokenAuth, getUserGames);
 router.get("/:id", getGame);
 
 // GET ALL

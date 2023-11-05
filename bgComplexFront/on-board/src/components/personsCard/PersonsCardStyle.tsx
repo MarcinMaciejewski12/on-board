@@ -32,7 +32,7 @@ export const Header = styled.div`
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 1rem;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const Description = styled.div`
