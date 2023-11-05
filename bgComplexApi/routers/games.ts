@@ -9,7 +9,7 @@ import {
   getUserGames,
   updateGame,
 } from "../controllers/gameControler";
-import { verifyAdmin, verifyUser } from "../utils/tokenVeryfy";
+import { verifyAdmin, verifyUser } from "../utils/tokenVerify";
 
 const router = express.Router();
 router.use(cors());

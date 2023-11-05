@@ -4,10 +4,15 @@ import { DashboardContainer, DashboardModal } from "./DashboardStyle";
 
 const Dashboard = () => {
   const [games, setGames] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:8800/api/games/userGames").then((response) => {
-      setGames(response.data);
-    });
+    axios
+      .get("http://localhost:8800/api/games/userGames", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
   }, []);
 
   return (

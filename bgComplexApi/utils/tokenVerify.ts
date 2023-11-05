@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { createError } from "../utils/error";
+import { createError } from "./error";
 
 export const verifyToken = (req: any, res: any, next: any, verifyUser: any) => {
   const token = req.cookies.acces_token;

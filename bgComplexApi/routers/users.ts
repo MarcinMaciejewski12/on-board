@@ -1,7 +1,7 @@
 import express from "express";
 import { getGames } from "../controllers/gameControler";
 import { deleteUser, getUser, updateUser } from "../controllers/userControler";
-import { verifyAdmin, verifyUser } from "../utils/tokenVeryfy";
+import { verifyUser } from "../utils/tokenVerify";
 
 const router = express.Router();
 
@@ -15,6 +15,6 @@ router.delete("/:id", verifyUser, deleteUser);
 router.get("/:id", verifyUser, getUser);
 
 // GET ALL
-router.get("/", verifyAdmin, getGames);
+router.get("/", verifyUser, getGames);
 
 export default router;

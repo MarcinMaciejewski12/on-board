@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import GameModel from "../../constant/models/GameModel";
 import List from "../../theme/list/List";
 import {
   AddGameButton,
@@ -9,16 +10,6 @@ import {
 } from "../../theme/list/ListStyle";
 import { Header } from "../personsCard/PersonsCardStyle";
 import { GamesListView } from "./GamesListStyle";
-interface GameModel {
-  name: string;
-  description: string;
-  _id: string;
-  players: number;
-  playTime: number;
-  type: string;
-  difficulty: number;
-}
-
 const MyGamesList = () => {
   const [games, setGames] = useState([]);
 
@@ -29,7 +20,7 @@ const MyGamesList = () => {
         setGames(repsonse.data);
       })
       .catch((error) => {
-        console.log("siemano");
+        console.log("error");
       });
   }, []);
 
