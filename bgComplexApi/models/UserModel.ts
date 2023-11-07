@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
     },
+    userGames: [{}],
   },
   { timestamps: true }
 );

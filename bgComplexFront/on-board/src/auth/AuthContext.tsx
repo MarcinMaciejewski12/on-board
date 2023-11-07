@@ -1,17 +1,27 @@
-import { createContext, useEffect, useReducer } from "react";
+import { ReactNode, createContext, useEffect, useReducer } from "react";
+interface State {
+  user: null;
+  loading: boolean;
+  error: null | string;
+}
 
-const storedData = localStorage.getItem("user");
+interface Action {
+  type: string;
+  payload?: any;
+}
+
+const storedData = localStorage.getItem("token");
 
 const INITIAL_STATE = {
   user: storedData ? JSON.parse(storedData) : null,
   loading: false,
   error: null,
-  dispatch: (event: any) => {},
+  dispatch: (event: Action) => {},
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
 
-const authReducer = (state: any, action: any) => {
+const authReducer = (state: State, action: Action) => {
   switch (action.type) {
     case "LOGIN_START":
       return {
@@ -43,11 +53,11 @@ const authReducer = (state: any, action: any) => {
   }
 };
 
-export const AuthContextProvider = ({ children }: any) => {
+export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(authReducer, INITIAL_STATE);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("user", state.user);
   }, [state.user]);
 
   return (

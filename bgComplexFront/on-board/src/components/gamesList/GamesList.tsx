@@ -1,65 +1,58 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CLIENT_ID, gamesUrl } from "../constant/Constant";
-import List from "../theme/list/List";
+import { instance } from "../../auth/axiosInterceptops";
+import GameModel from "../../constant/models/GameModel";
+import List from "../../theme/list/List";
 import {
   AddGameButton,
   AdditionalGameInfo,
   GameName,
   GamesValuesContainer,
   Header,
-} from "../theme/list/ListStyle";
+} from "../../theme/list/ListStyle";
 import { GamesListView } from "./GamesListStyle";
-interface GameModel {
-  handle: string;
-  description: string;
-  id: string;
-  players: number;
-}
-
-const GamesList = () => {
+const MyGamesList = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    // TODO: refactor(try with SWR)
-    const fetchData = async () => {
-      try {
-        const gamesList = await axios
-          .get(gamesUrl, {
-            params: {
-              name: "",
-              client_id: CLIENT_ID,
-            },
-          })
-          .then((res) => {
-            return res.data.games;
-          });
-        setGames(gamesList);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
+    axios
+      .get("http://localhost:8800/api/games")
+      .then((repsonse) => {
+        setGames(repsonse.data);
+        console.log(repsonse.data);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
   }, []);
 
-  const getUpperCaseLetter = (letter: string) => {
-    let firstLetter = letter.charAt(0);
-    let letterToUpperCase = firstLetter.toUpperCase();
-
-    return letterToUpperCase + letter.slice(1);
+  const getChoosenGameId = (id: string) => {
+    console.log(id);
+    instance
+      .put("http://localhost:8800/api/games/addUserGame", { id: id })
+      .then((response) => {
+        console.log("dodano grę:", response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <GamesListView>
-      <h1>Twoja biblioteka:</h1>
+      <h1>Lista gier:</h1>
       <List>
-        {games.length ? (
-          games.map(({ id, handle, players }: GameModel) => {
+        {games ? (
+          games.map(({ _id, name, players }: GameModel) => {
             return (
-              <GamesValuesContainer key={id}>
+              <GamesValuesContainer key={_id}>
                 <Header>
-                  <GameName>{getUpperCaseLetter(handle)}</GameName>
-                  <AddGameButton>+ Dodaj rozgrywkę</AddGameButton>
+                  <div>
+                    <GameName>{name}</GameName>
+                  </div>
+                  <AddGameButton onClick={() => getChoosenGameId(_id)}>
+                    + Dodaj do biblioteki
+                  </AddGameButton>
                 </Header>
                 <AdditionalGameInfo>
                   <span>Liczba graczy: {players}</span>
@@ -77,4 +70,4 @@ const GamesList = () => {
   );
 };
 
-export default GamesList;
+export default MyGamesList;

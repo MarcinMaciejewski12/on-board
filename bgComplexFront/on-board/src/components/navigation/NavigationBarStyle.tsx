@@ -18,22 +18,23 @@ export const NavigationContainer = styled.nav`
 `;
 
 export const Navigation = styled.div`
-  display: none;
-  width: 60vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
   /* grid-template-rows: 8vh; */
 
   & li {
     width: 15vw;
-
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 16px;
-
     cursor: pointer;
+
+    a {
+      text-decoration: none; /* Remove underline for the link */
+      color: white; /* Customize the link color */
+    }
   }
 `;
 

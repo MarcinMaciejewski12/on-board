@@ -1,10 +1,10 @@
-import express from "express";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import express from "express";
 import mongoose from "mongoose";
+import authRoute from "./routers/auth";
 import gamesRoute from "./routers/games";
 import usersRoute from "./routers/users";
-import authRoute from "./routers/auth";
-import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config();
 
@@ -20,7 +20,6 @@ const connect = async () => {
 // middlewares
 app.use(cookieParser());
 app.use(express.json());
-
 app.use("/api/auth", authRoute);
 app.use("/api/games", gamesRoute);
 app.use("/api/users", usersRoute);

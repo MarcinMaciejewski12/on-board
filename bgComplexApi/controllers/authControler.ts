@@ -13,6 +13,7 @@ export const register = async (req: any, res: any, next: any) => {
       email: req.body.email,
       password: passwordHash,
       isAdmin: req.body.isAdmin,
+      userGames: req.body.userGames,
     });
 
     await newUser.save();
@@ -39,15 +40,17 @@ export const login = async (req: any, res: any, next: any) => {
       return next(createError(401, "wrong password or username"));
 
     const token = jwt.sign(
-      { id: userLogin._id, isAdmin: userLogin.isAdmin },
+      {
+        id: userLogin._id,
+        isAdmin: userLogin.isAdmin,
+        username: userLogin.username,
+      },
       process.env.JWT as string
     );
 
-    res
-      .cookie("acces_token", token, { httpOnly: true })
-      .status(200)
-      .json(userLogin);
+    res.status(200).json({ jwt: token });
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };

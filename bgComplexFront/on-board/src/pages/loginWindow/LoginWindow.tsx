@@ -1,9 +1,10 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { SetStateAction, useContext, useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
-import { SubmitButton } from "../../components/theme/MainTheme";
+import { SubmitButton } from "../../theme/MainTheme";
 import {
   ButtonContainer,
   InputBlock,
@@ -12,7 +13,6 @@ import {
   LoginIntroductionContainer,
   LoginModal,
 } from "./LoginWindowStyle";
-
 const LoginWindow = () => {
   const navigate = useNavigate();
 
@@ -44,12 +44,16 @@ const LoginWindow = () => {
         username: loginValue,
         password: passwordValue,
       });
+
+      // Decode the token
+      const decodedToken = jwtDecode(res.jwt) as any;
+      localStorage.setItem("token", res.jwt);
       dispatch({ type: "LOGIN_START" });
       if (!res.error) {
-        dispatch({ type: "LOGIN_SUCCESS", payload: res._id });
+        dispatch({ type: "LOGIN_SUCCESS", payload: decodedToken.id });
         navigate("/dashboard");
       } else {
-        console.log(`There is little error: ${res.error}`);
+        console.log(`There is little error: ${decodedToken.error}`);
       }
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error });

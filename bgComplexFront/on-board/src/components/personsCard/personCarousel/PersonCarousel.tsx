@@ -1,10 +1,10 @@
-import { Star } from "../../theme/blobs/blob";
-import { persons } from "../../constant/Constant";
+import { persons } from "../../../constant/Constant";
+import { Star } from "../../../theme/blobs/blob";
 import {
   Card,
-  MainContainer,
   Description,
   Header,
+  MainContainer,
   StarContainer,
 } from "../PersonsCardStyle";
 
