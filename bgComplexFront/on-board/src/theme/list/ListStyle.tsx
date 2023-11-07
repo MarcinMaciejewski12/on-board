@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const GameCollectionContainer = styled.div`
   width: 50vw;
   height: 60vh;
+
   overflow: auto;
   display: flex;
   justify-content: center;
@@ -21,7 +22,8 @@ export const GamesValuesContainer = styled.div`
   max-width: 44vw;
   height: 130px;
   border: 0.5px solid white;
-  margin: 10px;
+  margin-bottom: 10px;
+
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   display: flex;

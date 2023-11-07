@@ -1,12 +1,19 @@
+import { ReactNode } from "react";
 import { GameCollectionContainer, ListContainer } from "./ListStyle";
 
-const List = (props: any) => {
+interface ListProps {
+  children: ReactNode;
+}
+
+const List: React.FC<ListProps> = ({ children }) => {
   return (
-    <GameCollectionContainer>
-      <ListContainer>
-        <div>{props.children}</div>
-      </ListContainer>
-    </GameCollectionContainer>
+    <div>
+      <GameCollectionContainer>
+        <ListContainer>
+          <div>{children}</div>
+        </ListContainer>
+      </GameCollectionContainer>
+    </div>
   );
 };
 

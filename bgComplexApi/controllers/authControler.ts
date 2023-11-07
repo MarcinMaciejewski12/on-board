@@ -47,7 +47,7 @@ export const login = async (req: any, res: any, next: any) => {
       },
       process.env.JWT as string
     );
-    console.log(token);
+
     res.status(200).json({ jwt: token });
   } catch (err) {
     console.log(err);

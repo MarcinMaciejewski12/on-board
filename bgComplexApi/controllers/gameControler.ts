@@ -23,26 +23,6 @@ export const updateGame = async (req: any, res: any, next: any) => {
   }
 };
 
-export const addGameToUserGames = async (req: any, res: any, next: any) => {
-  try {
-    const gameId = req.body.id;
-    const game = await Game.findById(gameId);
-
-    if (!game) return res.status(404).json({ message: "game doesnt exist" });
-
-    const userId = req.user.id;
-
-    const user = await User.findById(userId);
-
-    user?.userGames.push(game);
-
-    user?.save();
-    return res.status(200).send("Gra dodana do kolekcji użytkownika");
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 export const deleteGame = async (req: any, res: any, next: any) => {
   try {
     await Game.findByIdAndDelete(req.params.id);
@@ -61,9 +41,31 @@ export const getGame = async (req: any, res: any, next: any) => {
   }
 };
 
-import dotenv from "dotenv";
+export const addGameToUserGames = async (req: any, res: any, next: any) => {
+  try {
+    const gameId = req.body.id;
+    const game = await Game.findById(gameId);
 
-dotenv.config();
+    const userId = req.decodedUser.id;
+    const user = await User.findById(userId);
+    const userGames = user?.userGames;
+
+    if (!game) return res.status(404).json({ message: "game doesnt exist" });
+
+    const userGamesIds = userGames?.map((game) => game._id.toString());
+
+    if (!userGamesIds?.includes(gameId)) {
+      userGames?.push(game);
+
+      user?.save();
+      res.status(200).send("Gra dodana do kolekcji użytkownika");
+    } else {
+      res.status(200).send("Gra juz jest w twojej kolekcji!");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const getUserGames = async (req: any, res: any) => {
   try {

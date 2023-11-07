@@ -1,4 +1,4 @@
-import GamesList from "./GamesList";
+import GamesList from "../../components/gamesList/GamesList";
 import { GamesWindow, NavigationMargin } from "./GamesListWindowStyle";
 
 const GamesListWindow = () => {

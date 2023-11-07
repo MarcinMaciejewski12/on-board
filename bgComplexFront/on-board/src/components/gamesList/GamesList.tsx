@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { instance } from "../../auth/axiosInterceptops";
 import GameModel from "../../constant/models/GameModel";
 import List from "../../theme/list/List";
 import {
@@ -18,13 +19,24 @@ const MyGamesList = () => {
       .get("http://localhost:8800/api/games")
       .then((repsonse) => {
         setGames(repsonse.data);
+        console.log(repsonse.data);
       })
       .catch((error) => {
         console.log("error");
       });
   }, []);
 
-  useEffect(() => {}, [games]);
+  const getChoosenGameId = (id: string) => {
+    console.log(id);
+    instance
+      .put("http://localhost:8800/api/games/addUserGame", { id: id })
+      .then((response) => {
+        console.log("dodano grę:", response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <GamesListView>
@@ -38,7 +50,9 @@ const MyGamesList = () => {
                   <div>
                     <GameName>{name}</GameName>
                   </div>
-                  <AddGameButton>+ Dodaj do biblioteki</AddGameButton>
+                  <AddGameButton onClick={() => getChoosenGameId(_id)}>
+                    + Dodaj do biblioteki
+                  </AddGameButton>
                 </Header>
                 <AdditionalGameInfo>
                   <span>Liczba graczy: {players}</span>
