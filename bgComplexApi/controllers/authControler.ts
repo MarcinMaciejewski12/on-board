@@ -14,6 +14,8 @@ export const register = async (req: any, res: any, next: any) => {
       password: passwordHash,
       isAdmin: req.body.isAdmin,
       userGames: req.body.userGames,
+      userFriends: req.body.userFriends,
+      gamesPlayed: req.body.gamesPlayed,
     });
 
     await newUser.save();

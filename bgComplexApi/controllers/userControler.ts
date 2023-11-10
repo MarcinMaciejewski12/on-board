@@ -37,3 +37,5 @@ export const getUsers = async (req: any, res: any, next: any) => {
     next(err);
   }
 };
+
+export const getUserFriends = async (req: any, res: any, next: any) => {};

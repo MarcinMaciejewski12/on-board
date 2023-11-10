@@ -1,6 +1,11 @@
 import express from "express";
 import { getGames } from "../controllers/gameControler";
-import { deleteUser, getUser, updateUser } from "../controllers/userControler";
+import {
+  deleteUser,
+  getUser,
+  getUserFriends,
+  updateUser,
+} from "../controllers/userControler";
 import { tokenAuth } from "../utils/tokenVerify";
 
 const router = express.Router();
@@ -13,7 +18,7 @@ router.delete("/:id", tokenAuth, deleteUser);
 
 // GET
 router.get("/:id", tokenAuth, getUser);
-
+router.get("/userFriends", tokenAuth, getUserFriends);
 // GET ALL
 router.get("/", tokenAuth, getGames);
 

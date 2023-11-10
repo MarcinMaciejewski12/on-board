@@ -15,6 +15,8 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
     },
     userGames: [{}],
+    userFriends: [{}],
+    gamesPlayed: [{}],
   },
   { timestamps: true }
 );
