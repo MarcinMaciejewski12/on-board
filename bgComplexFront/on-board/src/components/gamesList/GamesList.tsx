@@ -19,7 +19,6 @@ const MyGamesList = () => {
       .get("http://localhost:8800/api/games")
       .then((repsonse) => {
         setGames(repsonse.data);
-        console.log(repsonse.data);
       })
       .catch((error) => {
         console.log("error");
@@ -27,7 +26,6 @@ const MyGamesList = () => {
   }, []);
 
   const getChoosenGameId = (id: string) => {
-    console.log(id);
     instance
       .put("http://localhost:8800/api/games/addUserGame", { id: id })
       .then((response) => {

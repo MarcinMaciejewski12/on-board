@@ -14,13 +14,10 @@ const GamesSchema = new mongoose.Schema({
     max: 10,
   },
   playTime: {
-    type: Number,
-    min: 0.5,
-    max: 10,
+    type: String,
   },
   players: {
-    type: Number,
-    min: 1,
+    type: String,
   },
   photos: {
     type: [String],
@@ -29,6 +26,9 @@ const GamesSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
+  },
+  scoreboardItems: {
+    type: [String],
   },
 });
 
