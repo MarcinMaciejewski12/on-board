@@ -6,5 +6,6 @@ interface GameModel {
   playTime: number;
   type: string;
   difficulty: number;
+  scoreboardItems: [];
 }
 export default GameModel;
