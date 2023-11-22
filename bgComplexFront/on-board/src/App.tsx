@@ -5,6 +5,7 @@ import { Theme } from "./theme/MainTheme";
 // import GamesList from "./components/gamesList/GamesList";
 import { AuthContextProvider } from "./auth/AuthContext";
 import NavigationBar from "./components/navigation/NavigationBar";
+import CalendarComp from "./pages/calendar/CalendarComp";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddPlayedGames from "./pages/dashboard/addPlayedGames/AddPlayedGames";
 import GamesListWindow from "./pages/gamesListWindow/GamesListWindow";
@@ -24,6 +25,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/:gameName" element={<AddPlayedGames />} />
             <Route path="/gamesList" element={<GamesListWindow />} />
+            <Route path="/calendar" element={<CalendarComp />} />
           </Routes>
         </ThemeProvider>
       </QueryClientProvider>

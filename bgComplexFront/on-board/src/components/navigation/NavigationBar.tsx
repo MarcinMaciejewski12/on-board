@@ -47,16 +47,9 @@ const NavigationBar = () => {
                 scale: 1.2,
               }}
             >
-              Kalendarium
-            </motion.li>
-          </Navigation>
-          <Navigation>
-            <motion.li
-              whileHover={{
-                scale: 1.2,
-              }}
-            >
-              Ranking
+              <Link style={{ textDecoration: "none" }} to="/calendar">
+                Kalendarium
+              </Link>
             </motion.li>
           </Navigation>
         </ul>
