@@ -19,8 +19,7 @@ export const NavigationContainer = styled.nav`
 
 export const Navigation = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-  /* grid-template-rows: 8vh; */
+  grid-template-columns: repeat(3, 1fr);
 
   & li {
     width: 15vw;
@@ -32,8 +31,8 @@ export const Navigation = styled.div`
     cursor: pointer;
 
     a {
-      text-decoration: none; /* Remove underline for the link */
-      color: white; /* Customize the link color */
+      text-decoration: none;
+      color: white;
     }
   }
 `;
