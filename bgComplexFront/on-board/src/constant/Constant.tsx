@@ -2,20 +2,20 @@ export const persons = [
   {
     id: 1,
     name: "Wojtek",
-    description: "“Pomocy jestem przetrzymywany w serwerowni”",
+    description: "Aplikacja zmieniła moje zycie",
     star: 4,
   },
   {
     id: 2,
     name: "Michał",
-    description: "siemano",
+    description: "Polecam",
     star: 5,
   },
 
   {
     id: 3,
     name: "Andrzej",
-    description: "elo elo",
+    description: "polecam serdecznie",
     star: 5,
   },
 ];

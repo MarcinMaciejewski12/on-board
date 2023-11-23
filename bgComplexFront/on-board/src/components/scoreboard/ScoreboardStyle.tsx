@@ -84,3 +84,8 @@ export const TotalPoints = styled.div`
   background: white;
   padding: 0.3rem;
 `;
+
+export const TotalPointsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
