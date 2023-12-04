@@ -25,8 +25,9 @@ export const Navigation = styled.div`
     justify-content: center;
     color: white;
     font-size: 16px;
-    cursor: pointer;
+    width: 10vw;
     a {
+      cursor: pointer;
       text-decoration: none;
       color: white;
     }

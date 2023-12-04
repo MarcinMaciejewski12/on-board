@@ -16,10 +16,8 @@ import { AuthContext } from "../../auth/AuthContext";
 
 const NavigationBar = () => {
   const { user, dispatch } = useContext(AuthContext);
-  // Get the current location
   const location = useLocation();
 
-  // Check if the pathname includes "/dashboard"
   const isDashboardRoute = location.pathname.includes("/dashboard");
   return (
     // Refactor use map for destructure return statement
@@ -27,45 +25,53 @@ const NavigationBar = () => {
       {user ? (
         <ul>
           <Navigation>
-            <motion.li
-              whileHover={{
-                scale: 1.2,
-              }}
-            >
-              Znajomi
+            <motion.li>
+              <motion.p
+                whileHover={{
+                  scale: 1.2,
+                }}
+              >
+                Znajomi
+              </motion.p>
             </motion.li>
           </Navigation>
           <Navigation>
-            <motion.li
-              whileHover={{
-                scale: 1.2,
-              }}
-            >
+            <motion.li>
               <Link style={{ textDecoration: "none" }} to="/gamesList">
-                Lista gier
+                <motion.p
+                  whileHover={{
+                    scale: 1.2,
+                  }}
+                >
+                  Lista gier
+                </motion.p>
               </Link>
             </motion.li>
           </Navigation>
           <Navigation>
-            <motion.li
-              whileHover={{
-                scale: 1.2,
-              }}
-            >
+            <motion.li>
               <Link style={{ textDecoration: "none" }} to="/calendar">
-                Kalendarium
+                <motion.p
+                  whileHover={{
+                    scale: 1.2,
+                  }}
+                >
+                  Kalendarium
+                </motion.p>
               </Link>
             </motion.li>
           </Navigation>
           {!isDashboardRoute && (
             <Navigation>
-              <motion.li
-                whileHover={{
-                  scale: 1.2,
-                }}
-              >
+              <motion.li>
                 <Link style={{ textDecoration: "none" }} to="/dashboard">
-                  Moja półka
+                  <motion.p
+                    whileHover={{
+                      scale: 1.2,
+                    }}
+                  >
+                    Moja półka
+                  </motion.p>
                 </Link>
               </motion.li>
             </Navigation>
