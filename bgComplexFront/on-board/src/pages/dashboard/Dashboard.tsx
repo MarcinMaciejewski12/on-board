@@ -61,7 +61,7 @@ const Dashboard = () => {
     <DashboardContainer>
       <DashboardModal>
         <UserGamesListView>
-          <h1>Bibltioteka gier:</h1>
+          <h1>Twoja półka:</h1>
           <List>
             {games.length ? (
               games.map(({ _id, name, players }: GameModel) => {

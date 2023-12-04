@@ -58,6 +58,7 @@ const MyGamesList = () => {
       {addedGameModal && (
         <CorrectModal requestValue={"Dodano grę do biblioteki!"} />
       )}
+
       <h1>Lista gier:</h1>
       <List>
         {games ? (

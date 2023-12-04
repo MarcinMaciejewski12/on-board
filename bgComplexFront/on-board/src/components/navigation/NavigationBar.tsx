@@ -11,11 +11,16 @@ import LoginButton from "../buttons/LoginButton";
 // Library
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
 const NavigationBar = () => {
   const { user, dispatch } = useContext(AuthContext);
+  // Get the current location
+  const location = useLocation();
+
+  // Check if the pathname includes "/dashboard"
+  const isDashboardRoute = location.pathname.includes("/dashboard");
   return (
     // Refactor use map for destructure return statement
     <NavigationContainer>
@@ -52,6 +57,19 @@ const NavigationBar = () => {
               </Link>
             </motion.li>
           </Navigation>
+          {!isDashboardRoute && (
+            <Navigation>
+              <motion.li
+                whileHover={{
+                  scale: 1.2,
+                }}
+              >
+                <Link style={{ textDecoration: "none" }} to="/dashboard">
+                  Moja półka
+                </Link>
+              </motion.li>
+            </Navigation>
+          )}
         </ul>
       ) : (
         <EmptyNavigationBar />
