@@ -8,8 +8,6 @@ export const NavigationContainer = styled.nav`
   justify-content: space-between;
   width: 100vw;
   background: transparent;
-  z-index: 10;
-
   & ul {
     display: flex;
     width: 60vw;
@@ -20,16 +18,14 @@ export const NavigationContainer = styled.nav`
 export const Navigation = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
-  & li {
-    width: 15vw;
+  margin-left: 2rem;
+  li {
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 16px;
     cursor: pointer;
-
     a {
       text-decoration: none;
       color: white;

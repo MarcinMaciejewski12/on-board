@@ -18,7 +18,7 @@ const LoginWindow = () => {
 
   const [loginValue, setLogin] = useState("");
   const [passwordValue, setPassword] = useState("");
-
+  const [err, setErr] = useState<boolean>();
   const { dispatch, loading } = useContext(AuthContext);
 
   const loginHandler = (event: {
@@ -56,6 +56,9 @@ const LoginWindow = () => {
         console.log(`There is little error: ${decodedToken.error}`);
       }
     } catch (error) {
+      setErr(true);
+      setLogin("");
+      setPassword("");
       dispatch({ type: "LOGIN_FAILURE", payload: error });
       return error;
     }
@@ -96,6 +99,7 @@ const LoginWindow = () => {
                 value={passwordValue}
                 onChange={passwordHandler}
               />
+              {err && <p style={{ color: "red" }}>Zły login lub hasło</p>}
             </InputBlock>
             <ButtonContainer
               // TODO: refactor

@@ -10,9 +10,13 @@ import {
   GamesValuesContainer,
   Header,
 } from "../../theme/list/ListStyle";
+import CorrectModal from "../modals/correctModal/CorrectModal";
+import RequestFail from "../modals/errorModal/RequestFail";
 import { GamesListView } from "./GamesListStyle";
 const MyGamesList = () => {
   const [games, setGames] = useState([]);
+  const [err, setErr] = useState<boolean>();
+  const [addedGameModal, setAddedGameModal] = useState<boolean>();
 
   useEffect(() => {
     axios
@@ -29,7 +33,19 @@ const MyGamesList = () => {
     instance
       .put("http://localhost:8800/api/games/addUserGame", { id: id })
       .then((response) => {
-        console.log("dodano grę:", response);
+        // REFACTOR
+        if (!response.data) {
+          setErr(true);
+          setTimeout(() => {
+            setErr(false);
+          }, 2000);
+        } else if (response.data) {
+          setAddedGameModal(true);
+          setTimeout(() => {
+            setAddedGameModal(false);
+          }, 2000);
+        }
+        // -------
       })
       .catch((err) => {
         console.log(err);
@@ -38,6 +54,10 @@ const MyGamesList = () => {
 
   return (
     <GamesListView>
+      {err && <RequestFail requestValue={"Gra juz jest w twojej kolekcji"} />}
+      {addedGameModal && (
+        <CorrectModal requestValue={"Dodano grę do biblioteki!"} />
+      )}
       <h1>Lista gier:</h1>
       <List>
         {games ? (

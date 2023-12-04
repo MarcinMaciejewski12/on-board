@@ -9,7 +9,7 @@ export const GamesListView = styled.div`
   justify-content: center;
   align-items: center;
   & h1 {
-    width: 80%;
+    width: 50%;
     color: white;
     font-weight: 400;
   }

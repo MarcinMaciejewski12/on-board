@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 export const GameCollectionContainer = styled.div`
   width: 50vw;
-  height: 60vh;
-
-  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,13 +14,18 @@ export const ListContainer = styled.div`
   justify-content: center;
 `;
 
+export const ListWrapper = styled.div`
+  width: 100%;
+  max-height: 60vh;
+  overflow: auto;
+  padding-top: 10px;
+`;
+
 export const GamesValuesContainer = styled.div`
-  width: 45vw;
-  max-width: 44vw;
+  width: 43vw;
   height: 130px;
   border: 0.5px solid white;
   margin-bottom: 10px;
-
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   display: flex;

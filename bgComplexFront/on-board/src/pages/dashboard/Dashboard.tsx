@@ -63,7 +63,7 @@ const Dashboard = () => {
         <UserGamesListView>
           <h1>Bibltioteka gier:</h1>
           <List>
-            {games ? (
+            {games.length ? (
               games.map(({ _id, name, players }: GameModel) => {
                 return (
                   <GamesValuesContainer key={_id}>
