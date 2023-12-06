@@ -60,7 +60,7 @@ export const addGameToUserGames = async (req: any, res: any, next: any) => {
       user?.save();
       res.status(200).send(true);
     } else {
-      res.status(200).send(false);
+      res.status(422).send(false);
     }
   } catch (err) {
     console.log(err);

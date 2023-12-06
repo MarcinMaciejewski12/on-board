@@ -56,82 +56,81 @@ const LoginWindow = () => {
         console.log(`There is little error: ${decodedToken.error}`);
       }
     } catch (error) {
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
+      return error;
+    } finally {
       setErr(true);
       setLogin("");
       setPassword("");
-      dispatch({ type: "LOGIN_FAILURE", payload: error });
-      return error;
     }
   };
 
   return (
-    <>
-      <LoginContainer>
-        <LoginModal
-          // TODO: refactor
-          initial={{ y: 1000, opacity: 1 }}
-          animate={{ y: 0 }}
-          transition={{ when: "beforeChildren", duration: 0.8 }}
-        >
-          <LoginForm>
-            <InputBlock
-              // TODO: refactor
-              initial={{ x: -1000, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{
+    <LoginContainer>
+      <LoginModal
+        // TODO: refactor
+        initial={{ y: 1000, opacity: 1 }}
+        animate={{ y: 0 }}
+        transition={{ when: "beforeChildren", duration: 0.8 }}
+      >
+        <LoginForm>
+          <InputBlock
+            // TODO: refactor
+            initial={{ x: -1000, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              duration: 1.5,
+              delay: 0.5,
+              stiffness: 80,
+            }}
+          >
+            <label>Login</label>
+            <input
+              placeholder="login"
+              type="text"
+              value={loginValue}
+              onChange={loginHandler}
+            />
+            <label>Hasło</label>
+            <input
+              type="password"
+              placeholder="password"
+              value={passwordValue}
+              onChange={passwordHandler}
+            />
+            {err && <p style={{ color: "red" }}>Zły login lub hasło</p>}
+          </InputBlock>
+          <ButtonContainer
+            // TODO: refactor
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              delay: 0.8,
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
                 type: "spring",
-                duration: 1.5,
-                delay: 0.5,
-                stiffness: 80,
-              }}
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001,
+              },
+            }}
+          >
+            <SubmitButton
+              whileHover={{ scale: 1.1 }}
+              onClick={loginButtonHandler}
+              disabled={loading}
             >
-              <label>Login</label>
-              <input
-                placeholder="login"
-                type="text"
-                value={loginValue}
-                onChange={loginHandler}
-              />
-              <label>Hasło</label>
-              <input
-                type="password"
-                placeholder="password"
-                value={passwordValue}
-                onChange={passwordHandler}
-              />
-              {err && <p style={{ color: "red" }}>Zły login lub hasło</p>}
-            </InputBlock>
-            <ButtonContainer
-              // TODO: refactor
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 0.8,
-                duration: 0.3,
-                ease: [0, 0.71, 0.2, 1.01],
-                scale: {
-                  type: "spring",
-                  damping: 5,
-                  stiffness: 100,
-                  restDelta: 0.001,
-                },
-              }}
-            >
-              <SubmitButton
-                whileHover={{ scale: 1.1 }}
-                onClick={loginButtonHandler}
-                disabled={loading}
-              >
-                Zaloguj się
-              </SubmitButton>
-            </ButtonContainer>
-          </LoginForm>
-        </LoginModal>
-        <LoginIntroductionContainer>
-          <h1>Wejdź do świata gier!</h1>
-        </LoginIntroductionContainer>
-      </LoginContainer>
-    </>
+              Zaloguj się
+            </SubmitButton>
+          </ButtonContainer>
+        </LoginForm>
+      </LoginModal>
+      <LoginIntroductionContainer>
+        <h1>Wejdź do świata gier!</h1>
+      </LoginIntroductionContainer>
+    </LoginContainer>
   );
 };
 
