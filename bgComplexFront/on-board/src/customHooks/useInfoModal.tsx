@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 interface InfoModalState {
-  err?: boolean | undefined;
-  addedGame?: boolean | undefined;
+  err?: boolean;
+  addedGame?: boolean;
 }
 
 const useInfoModal = (): [InfoModalState, (info: InfoModalState) => void] => {
