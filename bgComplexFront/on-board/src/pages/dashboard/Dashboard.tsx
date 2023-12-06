@@ -57,6 +57,10 @@ const Dashboard = () => {
     localStorage.setItem("gameId", id ?? "");
   };
 
+  const deleteGame = (playerId: string, gameId: string) => {
+    instance.delete("");
+  };
+
   return (
     <DashboardContainer>
       <DashboardModal>
@@ -80,6 +84,7 @@ const Dashboard = () => {
                     <AdditionalGameInfo>
                       <span>Liczba graczy: {players}</span>
                     </AdditionalGameInfo>
+                    <div style={{ cursor: "pointer" }}>delete</div>
                   </GamesValuesContainer>
                 );
               })

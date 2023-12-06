@@ -25,11 +25,19 @@ export const updateGame = async (req: any, res: any, next: any) => {
 
 export const deleteGame = async (req: any, res: any, next: any) => {
   try {
-    await Game.findByIdAndDelete(req.params.id);
-    res.status(200).json("Game deleted");
+    const userId = req.decodedUser.id;
+    const user = await User.findById(userId);
+
+    const userGames = user?.userGames;
   } catch (err) {
-    next(err);
+    console.log(err);
   }
+  // try {
+  //   await Game.findByIdAndDelete(req.params.id);
+  //   res.status(200).json("Game deleted");
+  // } catch (err) {
+  //   next(err);
+  // }
 };
 
 export const getGame = async (req: any, res: any, next: any) => {

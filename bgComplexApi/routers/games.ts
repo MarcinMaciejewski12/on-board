@@ -25,7 +25,7 @@ router.put("/:id", tokenAuth, updateGame);
 
 // DELETE
 
-router.delete("/:id", tokenAuth, deleteGame);
+router.delete("/:userId/:id", tokenAuth, deleteGame);
 
 // GET
 router.get("/userGames", tokenAuth, getUserGames);
