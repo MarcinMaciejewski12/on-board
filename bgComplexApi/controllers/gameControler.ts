@@ -58,9 +58,9 @@ export const addGameToUserGames = async (req: any, res: any, next: any) => {
       userGames?.push(game);
 
       user?.save();
-      res.status(200).send("Gra dodana do kolekcji użytkownika");
+      res.status(200).send(true);
     } else {
-      res.status(200).send("Gra juz jest w twojej kolekcji!");
+      res.status(422).send(false);
     }
   } catch (err) {
     console.log(err);

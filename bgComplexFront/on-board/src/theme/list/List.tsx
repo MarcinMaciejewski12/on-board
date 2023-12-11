@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
-import { GameCollectionContainer, ListContainer } from "./ListStyle";
+import {
+  GameCollectionContainer,
+  ListContainer,
+  ListWrapper,
+} from "./ListStyle";
 
 interface ListProps {
   children: ReactNode;
@@ -10,7 +14,7 @@ const List: React.FC<ListProps> = ({ children }) => {
     <div>
       <GameCollectionContainer>
         <ListContainer>
-          <div>{children}</div>
+          <ListWrapper>{children}</ListWrapper>
         </ListContainer>
       </GameCollectionContainer>
     </div>

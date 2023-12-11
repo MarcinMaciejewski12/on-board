@@ -8,6 +8,7 @@ import {
   TableContainer,
   TotalPointContainer,
   TotalPoints,
+  TotalPointsContainer,
   TotalScore,
 } from "./ScoreboardStyle";
 
@@ -54,10 +55,7 @@ const Scoreboard = ({ maxPlayers, scoreboardItems }: IProps) => {
     const players = [];
     for (let playerForm = 0; playerForm < maxPlayers; playerForm++) {
       players.push(
-        <div
-          key={playerForm}
-          style={{ display: "flex", flexDirection: "column" }}
-        >
+        <TotalPointsContainer key={playerForm}>
           <div>
             <PlayersInput
               key={playerForm}
@@ -68,7 +66,7 @@ const Scoreboard = ({ maxPlayers, scoreboardItems }: IProps) => {
           </div>
 
           <div>
-            {scoreboardItems.map((value: any, index) => (
+            {scoreboardItems.map((value, index) => (
               <div key={index}>
                 <ScoreInput
                   autoComplete="off"
@@ -81,7 +79,7 @@ const Scoreboard = ({ maxPlayers, scoreboardItems }: IProps) => {
               </div>
             ))}
           </div>
-        </div>
+        </TotalPointsContainer>
       );
     }
 
@@ -130,7 +128,7 @@ const Scoreboard = ({ maxPlayers, scoreboardItems }: IProps) => {
           scoreboardItems.map((item, index) => {
             return (
               <TotalScore>
-                {totalPoints[index] > 0 ? totalPoints[index] : 0}
+                {totalPoints[index] ? totalPoints[index] : 0}
               </TotalScore>
             );
           })}
